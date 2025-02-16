@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Table</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body class="container mt-4">
+    <h2 class="mb-4">Projects Database</h2>
+    <div id="topic-buttons" class="mb-3"></div>
+    <table class="table table-striped">
+        <thead>
+            <tr id="table-head"></tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+    </table>
+    
+    <script>
+        d3.csv("data/projects-db.csv").then(function(data) {
+            if (data.length === 0) return;
+            
+            // Filter out rows where my_project is not 'Y'
+            data = data.filter(d => d.my_project === "Y");
+            
+            const columns = ["name", "description", "links", "topics"];
+            const tableHead = d3.select("#table-head");
+            const tableBody = d3.select("#table-body");
+            const topicButtons = d3.select("#topic-buttons");
+            let activeTopic = null;
+            
+            // Extract unique topics from comma-separated lists, sort them alphabetically
+            const topics = Array.from(new Set(data.flatMap(d => d.topics ? d.topics.split(",").map(t => t.trim()) : []))).sort();
+            
+            // Add buttons for filtering
+            topicButtons.selectAll("button")
+                .data(topics)
+                .enter()
+                .append("button")
+                .attr("class", "btn btn-outline-primary me-2")
+                .text(d => d)
+                .on("click", function(event, topic) {
+                    if (activeTopic === topic) {
+                        activeTopic = null;
+                        d3.selectAll(".btn").classed("btn-primary", false).classed("btn-outline-primary", true);
+                    } else {
+                        activeTopic = topic;
+                        d3.selectAll(".btn").classed("btn-primary", false).classed("btn-outline-primary", true);
+                        d3.select(this).classed("btn-outline-primary", false).classed("btn-primary", true);
+                    }
+                    updateTable();
+                });
+            
+            // Add table headers with sorting
+            tableHead.selectAll("th")
+                .data(columns)
+                .enter()
+                .append("th")
+                .text(d => d)
+                .attr("class", "sortable")
+                .on("click", function(event, d) {
+                    const ascending = this.getAttribute("data-asc") === "true";
+                    this.setAttribute("data-asc", !ascending);
+                    data.sort((a, b) => ascending ? d3.ascending(a[d], b[d]) : d3.descending(a[d], b[d]));
+                    updateTable();
+                });
+            
+            function updateTable() {
+                tableBody.html(""); // Clear existing table rows
+                const filteredData = activeTopic ? data.filter(d => d.topics && d.topics.split(",").map(t => t.trim()).includes(activeTopic)) : data;
+                tableBody.selectAll("tr")
+                    .data(filteredData)
+                    .enter()
+                    .append("tr")
+                    .each(function(d) {
+                        d3.select(this).selectAll("td")
+                            .data([
+                                d.homepage ? `<a href="${d.homepage}">${d.name}</a>` : d.name,
+                                d.description,
+                                d.html_url ? `<a href="${d.html_url}">Code...</a>` : "",
+                                d.topics
+                            ])
+                            .enter()
+                            .append("td")
+                            .html(d => d);
+                    });
+            }
+            
+            updateTable();
+        }).catch(error => console.error("Error loading CSV:", error));
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Commits Dot Plot</title>
+    <script type="module">
+      import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+      import { csv } from "https://cdn.jsdelivr.net/npm/d3-fetch@3/+esm";
+      import { autoType } from "https://cdn.jsdelivr.net/npm/d3-dsv@3/+esm";
+      import { min, max, range } from "https://cdn.jsdelivr.net/npm/d3-array@3/+esm";
+      import { timeYear, timeWeek } from "https://cdn.jsdelivr.net/npm/d3-time@3/+esm";
+
+      csv("data/git-commits.csv", autoType).then(data => {
+        data.forEach(d => {
+          d.date = new Date(d.date);
+          d.week = timeWeek.floor(d.date);
+        });
+
+        const minWeek = timeWeek.floor(min(data, d => d.date));
+        const maxWeek = timeWeek.floor(max(data, d => d.date));
+        const allWeeks = [];
+        let currentWeek = new Date(minWeek);
+
+        while (currentWeek <= maxWeek) {
+          allWeeks.push(new Date(currentWeek));
+          currentWeek.setDate(currentWeek.getDate() + 7);
+        }
+
+        const commitsByWeek = new Map();
+        data.forEach(d => {
+          const key = `${d.project}|${d.week.toISOString()}`;
+          commitsByWeek.set(key, (commitsByWeek.get(key) || 0) + d.num_commits);
+        });
+
+        const fullData = [];
+        for (const project of new Set(data.map(d => d.project))) {
+          for (const week of allWeeks) {
+            const key = `${project}|${week.toISOString()}`;
+            if (commitsByWeek.get(key)) {
+              fullData.push({ 
+                project: project, 
+                week: week, 
+                num_commits: commitsByWeek.get(key) // Store commit count
+              });
+            }
+          }
+        }
+
+        const projectFirstCommit = {};
+        data.forEach(d => {
+          if (!projectFirstCommit[d.project] || d.week < projectFirstCommit[d.project]) {
+            projectFirstCommit[d.project] = d.week;
+          }
+        });
+
+        const projectsSorted = Object.keys(projectFirstCommit).sort(
+          (a, b) => projectFirstCommit[b] - projectFirstCommit[a]
+        );
+
+        const yearStarts = range(minWeek.getFullYear(), maxWeek.getFullYear() + 1, 1).map(
+          year => timeYear.floor(new Date(year, 0, 1))
+        );
+
+        const chart = Plot.plot({
+          marks: [
+            Plot.dot(fullData, {
+              x: "week",
+              y: "project",
+              fill: "black", // ✅ Solid dots
+              r: 3, // ✅ Uniform size
+              title: d => `Project: ${d.project}\nWeek: ${d.week.toISOString().split("T")[0]}\nCommits: ${d.num_commits}`
+            }),
+            Plot.ruleX(yearStarts, { stroke: "black", strokeWidth: 1, strokeOpacity: 0.5 })
+          ],
+          x: {
+            type: "utc",
+            domain: [yearStarts[0], maxWeek], // ✅ Prevents axis overlap
+            ticks: yearStarts
+          },
+          y: {
+            label: "Project",
+            domain: projectsSorted
+          },
+          marginLeft: 150,
+          marginTop: 50,
+          width: 1000,
+          height: 1500
+        });
+
+        document.body.appendChild(chart);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Commits Dot Plot</h1>
+    <p>
+      Each dot represents a project having commits during that week.  
+      - **Solid black dots** indicate weeks with commits.  
+      - **Vertical lines** indicate the start of each year.  
+      - The y-axis is sorted by first commit date (most recent at the top).  
+    </p>
+  </body>
+</html>

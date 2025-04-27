@@ -28,7 +28,7 @@ blockclock,Y,Y,A real digital clock,http://tomwhite.github.io/blockclock/,https:
 blockclock-matrix,Y,N,Blockclock as an LED matrix,,,"visualization,maker",,https://share.evernote.com/note/7105a9dc-459b-4420-fe78-a884cc314071,
 blockclock-sweep,Y,N,Blockclock as a laser pointer,,,"visualization,maker",,https://share.evernote.com/note/9144742f-766a-4f0f-8006-00c8be116dbc,
 bolus-calc,Y,N,Experiments in calculating insulin bolus amounts for T1D,,,t1d,,,
-carbon-footprint,Y,N,Calculating our household carbon footprint in 2017,,,,,https://share.evernote.com/note/c9329f1b-9d84-4b60-81cc-f3827703a1e6,
+carbon-footprint,Y,N,Calculating our household carbon footprint in 2017,,,"green,home",,https://share.evernote.com/note/c9329f1b-9d84-4b60-81cc-f3827703a1e6,
 chernoff,Y,Y,A visual mood indicator. One of the first Java programs I ever wrote.,http://tomwhite.github.io/chernoff/,https://github.com/tomwhite/chernoff,visualization,1997-01-01,,
 chess,Y,N,Raw data for chess puzzle results,,,games,,https://share.evernote.com/note/176e7fb0-1970-4547-a2d6-8cc8a89c1ad2,
 chinesechequers,Y,N,Play Chinese Chequers against the computer,,https://github.com/tomwhite/chinesechequers,games,,https://share.evernote.com/note/74b55ebf-02fb-40a2-92bf-376142c596b7,
@@ -61,11 +61,11 @@ egg-construction,Y,Y,Compass constructions for egg shapes from 'Mathographics' b
 egg-fitting,Y,N,Fitting egg shapes,,,,,https://share.evernote.com/note/7cea3e75-14f6-4922-a7bd-16edbe9fc8a0,
 enigma,Y,N,A few New Scientist Enigma puzzle solutions,,,,,,
 facebender,Y,N,A project from A. K. Dewdney's 'The Armchair Universe' for producing caricatures.,,https://github.com/tomwhite/facebender,visualization,,https://share.evernote.com/note/540f22fb-dbb9-4b0a-898e-5c1285217637,
+false-summits,Y,N,What shape would a hill with the most number of false summits be?,,,visualization,,https://share.evernote.com/note/2443ea0c-58cc-b628-d59a-19005ab11b78,
 ffawyddog.com,Y,N,Ffawyddog Phonebox website,https://ffawyddog.com/,,local-community,,https://share.evernote.com/note/8b838a16-69be-4a3a-0172-042b08e33c8f,
 freeloader,Y,N,Recreation of a cooperative group game from the Exploratorium in SF,,,games,,https://share.evernote.com/note/d8ea9e2c-ef50-4f44-b962-1840f2cf426e,
-futoshiki,Y,N,Futoshiki solver using MiniZinc and js (superceded by futoshiki-hints),,,games,,,
-futoshiki-hints,Y,N,Futoshiki puzzle hints for humans,,https://github.com/tomwhite/futoshiki-hints,games,,https://share.evernote.com/note/528855e5-36e5-4e28-9012-cfed7b0e046b,
-futoshiki-hints,Y,Y,Futoshiki puzzle hints for humans,https://github.com/tomwhite/futoshiki-hints,https://github.com/tomwhite/futoshiki-hints,games,2021-02-01,,
+futoshiki,Y,N,Futoshiki solver using MiniZinc and js (superceded by futoshiki-hints),,,games,,,futoshiki-hints
+futoshiki-hints,Y,Y,Futoshiki puzzle hints for humans,https://github.com/tomwhite/futoshiki-hints,https://github.com/tomwhite/futoshiki-hints,games,2021-02-01,https://share.evernote.com/note/528855e5-36e5-4e28-9012-cfed7b0e046b,futoshiki
 ga,Y,N,A simple Java package for writing genetic algorithms (GAs).,,https://github.com/tomwhite/ga,,,,
 gaussian-primes,Y,Y,Visualization of Gaussian primes,http://tomwhite.github.io/gaussian-primes/xmas-lines.html,https://github.com/tomwhite/gaussian-primes,visualization,2009-12-01,,
 ge-2024,Y,Y,An animation that relives the night of the Labour landslide,https://tom-e-white.com/ge-2024/,https://github.com/tomwhite/ge-2024,visualization,2024-07-01,,
@@ -135,7 +135,7 @@ pyodide-curses-mar-2022,Y,N,"Can we implement the minimal subset of (python) cur
 pypaddle,N,N,A paddle ball bouncing game very similar to Pong,,https://github.com/arpruss/pypaddle,games,,,pong
 ql,Y,N,Programs for the Sinclair QL,,,retro-computing,,https://share.evernote.com/note/ff49d3a8-48c0-428c-8428-62c1e9ee937b,
 qltools,N,N,Qltools is a utility that allows you to access files stored on a QL Floppy Disc,,https://github.com/SinclairQL/qltools,retro-computing,,,
-qs,Y,N,A bunch of disparate scripts and code to analyse various things about my body,,,retro-computing,,,
+qs,Y,N,A bunch of disparate scripts and code to analyse various things about my body,,,,,,
 qxltools,N,N,"Tools to manipulate Sinclair QL ""QXL.WIN"" files on numerous (!) operating systems.",,https://github.com/NormanDunbar/qxltools,retro-computing,,,
 read_thermal.py,N,N,Flir Image Extractor,,https://github.com/Nervengift/read_thermal.py,,,,
 rechunker-cloud-cli,Y,N,Rechunk Zarr files using PyWren,,,"arrays,visualization",,,

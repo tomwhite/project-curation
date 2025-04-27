@@ -4,12 +4,18 @@ Curating, publishing, and visualizing my projects
 
 ## Web pages
 
+Run `python -m http.server`
+
 ### Project database
 
 * Update the [Projects DB spreadsheet](https://docs.google.com/spreadsheets/d/1ZIM1VVZgo9rpyjtbJWgUkX1gUMwzMc7FVnYDvrOsSTw/edit?gid=0#gid=0).
     * Run `ls -lt ~/projects-workspace | head` to see if there are any new projects.
     * Download as csv
     * `mv ~/Downloads/Projects\ DB\ -\ Sheet1.csv data/projects-db.csv`
+
+### Git commits
+
+* Update the commits csv (see `git-commits.sh` command below)
 
 
 ## Location

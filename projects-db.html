@@ -24,7 +24,7 @@
             // Filter out rows where my_project is not 'Y'
             data = data.filter(d => d.my_project === "Y");
             
-            const columns = ["name", "description", "links", "topics"];
+            const columns = ["name", "description", "date", "links", "topics"];
             const tableHead = d3.select("#table-head");
             const tableBody = d3.select("#table-body");
             const topicButtons = d3.select("#topic-buttons");
@@ -78,6 +78,7 @@
                             .data([
                                 d.homepage ? `<a href="${d.homepage}">${d.name}</a>` : d.name,
                                 d.description,
+                                d.date,
                                 d.html_url ? `<a href="${d.html_url}">Code...</a>` : "",
                                 d.topics
                             ])

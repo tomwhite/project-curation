@@ -40,5 +40,5 @@ ls -ld ../* | wc -l
 ```shell
 ./github-not-forked.sh # on github but not forked
 ./git-dirty.sh  # dirty git status
-./git-commits.sh > data/git-commits.csv # git commit counts by project and date
+./git-commits-all.sh > data/git-commits.csv # git commit counts by project and date
 ```

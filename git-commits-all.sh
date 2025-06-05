@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 cd ..
-# git commit counts by project and date
+# git commit counts by project and date for all branches
 echo "project,date,num_commits"
 for d in $(ls); do
   # check if local git

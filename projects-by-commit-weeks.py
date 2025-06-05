@@ -1,10 +1,12 @@
 # Sort projects by number of weeks with commits
 
+import sys
 import pandas as pd
 
 pd.set_option("display.max_rows", None)
 
 if __name__ == "__main__":
+    input = sys.argv[1]
     df = pd.read_csv("data/git-commits.csv")
     df = df.groupby(["project"]).count().reset_index()
     df = df[["project", "num_commits"]]

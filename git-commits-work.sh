@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+cd repos
 # git commit counts by project and date for main branch only
 echo "project,date,num_commits"
 for d in $(ls); do

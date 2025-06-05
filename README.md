@@ -42,3 +42,8 @@ ls -ld ../* | wc -l
 ./git-dirty.sh  # dirty git status
 ./git-commits-all.sh > data/git-commits.csv # git commit counts by project and date
 ```
+
+```shell
+./git-commits-work.sh > data/git-commits-work.csv # git commit counts for work projects by project and date
+sed -i '' 's/hadoop-pre-HADOOP-4687/hadoop/' data/git-commits-work.csv
+```

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Professional Open Source Projects</title>
+    <script type="module">
+      import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+      import { csv } from "https://cdn.jsdelivr.net/npm/d3-fetch@3/+esm";
+      import { autoType } from "https://cdn.jsdelivr.net/npm/d3-dsv@3/+esm";
+      import { min, max, range } from "https://cdn.jsdelivr.net/npm/d3-array@3/+esm";
+      import { timeYear, timeWeek } from "https://cdn.jsdelivr.net/npm/d3-time@3/+esm";
+
+      const languages = await csv("data/projects-lang.csv", autoType);
+      const languagesByProject = new Map();
+      languages.forEach(d => {
+        languagesByProject.set(d.project, d.language);
+      });
+
+      csv("data/git-commits-work.csv", autoType).then(data => {
+        data.forEach(d => {
+          d.date = new Date(d.date);
+          d.week = timeWeek.floor(d.date);
+        });
+
+        const minWeek = timeWeek.floor(min(data, d => d.date));
+        const maxWeek = timeWeek.floor(max(data, d => d.date));
+        const allWeeks = [];
+        let currentWeek = new Date(minWeek);
+
+        while (currentWeek <= maxWeek) {
+          allWeeks.push(new Date(currentWeek));
+          currentWeek.setDate(currentWeek.getDate() + 7);
+        }
+
+        const commitsByWeek = new Map();
+        data.forEach(d => {
+          const key = `${d.project}|${d.week.toISOString()}`;
+          commitsByWeek.set(key, (commitsByWeek.get(key) || 0) + d.num_commits);
+        });
+
+        const fullData = [];
+        for (const project of new Set(data.map(d => d.project))) {
+          for (const week of allWeeks) {
+            const key = `${project}|${week.toISOString()}`;
+            if (commitsByWeek.get(key)) {
+              fullData.push({ 
+                project: project, 
+                week: week, 
+                num_commits: commitsByWeek.get(key), // Store commit count
+                language: languagesByProject.get(project)
+              });
+            }
+          }
+        }
+
+        const projectFirstCommit = {};
+        data.forEach(d => {
+          if (!projectFirstCommit[d.project] || d.week < projectFirstCommit[d.project]) {
+            projectFirstCommit[d.project] = d.week;
+          }
+        });
+
+        const projectsSorted = Object.keys(projectFirstCommit).sort(
+          (a, b) => projectFirstCommit[b] - projectFirstCommit[a]
+        );
+
+        const yearStarts = range(minWeek.getFullYear(), maxWeek.getFullYear() + 1, 1).map(
+          year => timeYear.floor(new Date(year, 0, 1))
+        );
+
+        const chart = Plot.plot({
+          color: {legend: true},
+          marks: [
+            Plot.dot(fullData, {
+              x: "week",
+              y: "project",
+              fill: "language", // ✅ Solid dots
+              r: 3, // ✅ Uniform size
+              title: d => `Project: ${d.project}\nWeek: ${d.week.toISOString().split("T")[0]}\nCommits: ${d.num_commits}`
+            }),
+            Plot.ruleX(yearStarts, { stroke: "black", strokeWidth: 1, strokeOpacity: 0.5 })
+          ],
+          x: {
+            type: "utc",
+            domain: [yearStarts[0], maxWeek], // ✅ Prevents axis overlap
+            ticks: yearStarts,
+            label: null,
+          },
+          y: {
+            label: null,
+            domain: projectsSorted
+          },
+          marginLeft: 150,
+          marginTop: 50,
+          width: 1000,
+          height: 600
+        });
+
+        const div = document.querySelector("#plot");
+        div.append(chart);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Professional Open Source Projects</h1>
+    <p>
+      This plot shows the main open-source projects that I have worked on professionally over my career via a visualization of git commits.
+      Each dot on the chart shows a week where I contributed in some way to the project code - typically a commit of
+      some code I wrote, or (for the Hadoop projects) reviewing and committing someone else's code.
+    <p>
+    <p>
+      I have contributed to many more projects than the ones shown here, but all of these here are ones
+      to which I made sustained contributions, usually over multiple years.
+    </p>
+
+    <div id="plot"></div>
+
+    <p>
+      From this data, three main phases are apparent.
+    </p>
+    <h3>Hadoop</h3>
+    <p>
+      From 2006 to 2015 I worked exclusively on <a href="https://github.com/apache/hadoop">Apache Hadoop</a> and projects in the Hadoop eco-system
+      (mainly <a href="https://github.com/apache/avro">Avro</a>, <a href="https://github.com/apache/parquet-java">Parquet</a>,
+      <a href="https://github.com/apache/crunch">Crunch</a>, <a href="https://github.com/kite-sdk/kite">Kite</a>, and <a href="https://github.com/apache/whirr">Whirr</a>).
+      (It's not shown here, but I also wrote four editions of a <a href="http://www.hadoopbook.com/">book on Hadoop</a> from 2008 to 2012.)
+    </p>
+
+    <h3>Hadoop and Genomics</h3>
+    <p>
+      In 2015 I joined the data science team at Cloudera and shifted my focus to applications running on Hadoop and Spark,
+      and contributed mainly to <a href="https://github.com/broadinstitute/gatk">GATK</a> and related projects
+      (<a href="https://github.com/HadoopGenomics/Hadoop-BAM">Hadoop-BAM</a>, <a href="https://github.com/samtools/htsjdk">htsjdk</a>,
+      <a href="https://github.com/disq-bio/disq">Disq</a>). I left Cloudera in 2018, but continued
+      working on these projects through to the end of 2019.
+    </p>
+
+    <h3>Python and Genomics</h3>
+    <p>
+      In 2020 I pivoted to the PyData community, and started working on <a href="https://github.com/sgkit-dev/sgkit">sgkit</a>,
+      and later <a href="https://github.com/sgkit-dev/bio2zarr">bio2zarr</a> and <a href="https://github.com/sgkit-dev/vcztools">vcztools</a>.
+      I also developed the more general <a href="https://github.com/cubed-dev/cubed">Cubed</a> processing engine in tandem with these projects.
+    </p>
+  </body>
+</html>

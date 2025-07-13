@@ -18,13 +18,13 @@
     </table>
     
     <script>
-        d3.csv("data/projects-db.csv").then(function(data) {
+        d3.csv("data/projects-db-final.csv").then(function(data) {
             if (data.length === 0) return;
             
             // Filter out rows where my_project is not 'Y'
             data = data.filter(d => d.my_project === "Y");
             
-            const columns = ["name", "description", "date", "links", "topics"];
+            const columns = ["name", "description", "date", "links", "topics", "published", "local_git", "github"];
             const tableHead = d3.select("#table-head");
             const tableBody = d3.select("#table-body");
             const topicButtons = d3.select("#topic-buttons");
@@ -80,7 +80,10 @@
                                 d.description,
                                 d.date,
                                 d.html_url ? `<a href="${d.html_url}">Code...</a>` : "",
-                                d.topics
+                                d.topics,
+                                d.published,
+                                d.local_git,
+                                d.github
                             ])
                             .enter()
                             .append("td")

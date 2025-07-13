@@ -44,7 +44,7 @@
             h1 ^= (h2 ^ h3 ^ h4), h2 ^= h1, h3 ^= h1, h4 ^= h1;
             return [h1>>>0, h2>>>0, h3>>>0, h4>>>0];
         }
-        d3.csv("data/projects-db.csv").then(function(data) {
+        d3.csv("data/projects-db-final.csv").then(function(data) {
             if (data.length === 0) return;
             // randomize list of projects in a stable way
             data_mixed = data.map(d => ({...d, ...{id: cyrb128(d.name)[0]}}))
@@ -57,7 +57,8 @@
             const description = d.description;
             const url = d.html_url ? `<a href="${d.html_url}">Code...</a>` : "";
             const topics = d.topics;
-            d3.select("#name").html(`${title}<br/>${description}<br/>${url}<br/>${topics}`);
+            console.log(d)
+            d3.select("#name").html(`${title}<br/>${description}<br/>${url}<br/>${topics}<br/><br/>My project: ${d.my_project}<br/>Published: ${d.published}<br/>Local git: ${d.local_git}<br/>Github: ${d.github}`);
         }).catch(error => console.error("Error loading CSV:", error));
     </script>
 </body>

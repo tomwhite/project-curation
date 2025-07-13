@@ -22,23 +22,6 @@ Run `python -m http.server`
 python post-process-db.py
 ```
 
-## Location
-
-```shell
-./no-git.sh # list projects that are not in git
-./no-github.sh # git but not github
-./github.sh # on github
-```
-
-### Counts
-
-```shell
-ls -ld ../* | wc -l
-./no-git.sh | wc -l
-./no-github.sh | wc -l
-./github.sh | wc -l
-```
-
 ## More queries
 
 ```shell

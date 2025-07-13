@@ -16,7 +16,11 @@ Run `python -m http.server`
 ### Git commits
 
 * Update the commits csv (see `git-commits.sh` command below)
+* Update projects DB with git status:
 
+```shell
+python post-process-db.py
+```
 
 ## Location
 
@@ -41,6 +45,7 @@ ls -ld ../* | wc -l
 ./github-not-forked.sh # on github but not forked
 ./git-dirty.sh  # dirty git status
 ./git-commits-all.sh > data/git-commits.csv # git commit counts by project and date
+./git-status.sh > data/git-status.csv # whether project is in local git and github
 ```
 
 ```shell

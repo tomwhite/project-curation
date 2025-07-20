@@ -11,17 +11,17 @@ array-api-tests,N,N,,,,,,,,Y,Y
 array-api-tests-dask,Y,N,,,,arrays,,,,Y,Y
 array-api-tests-op-art,Y,N,,,,arrays,,,op-art,Y,Y
 array-tracker,Y,N,An implementation of the Python array API standard that tracks array element dependencies,,,arrays,,https://share.evernote.com/note/a4a0d576-33ee-4af6-baa4-a3769349b6bf,op-art,Y,N
-articles,Y,N,Collection of my old technical articles,,,,,,,Y,N
-atomiclisp,Y,N,"Atomic LISP is my reformulation of Gregory J. Chaitin's version of LISP that he uses in his books ""The Unknowable"" (Springer Verlag, 1999) and ""The Limits of Mathematics"" (Springer Verlag 1998).",,https://github.com/tomwhite/atomiclisp,,,,,Y,N
+articles,Y,N,Collection of my old technical articles,,,,,,,Y,Y
+atomiclisp,Y,N,"Atomic LISP is my reformulation of Gregory J. Chaitin's version of LISP that he uses in his books ""The Unknowable"" (Springer Verlag, 1999) and ""The Limits of Mathematics"" (Springer Verlag 1998).",,https://github.com/tomwhite/atomiclisp,,,,,Y,Y
 autotune-docker,Y,N,Running OpenAPS autotune in Docker,,,t1d,,https://share.evernote.com/note/90a263d6-e4cd-4bf4-8507-07124d57160c,,N,N
 badge-2024-software,N,N,Tildagon software,,https://github.com/emfcamp/badge-2024-software,,,,,Y,Y
 barry,Y,N,Early Cubed development (replaced by Cubed),,,arrays,,,,Y,Y
 barry-original,Y,N,Early Cubed development (replaced by Cubed),,,arrays,,,,Y,N
 bat-recordings,Y,N,EMF Camp bat recordings,,,nature,,https://share.evernote.com/note/85b38020-2d7b-615e-0f3e-da2a26f5a583,,N,N
-benford,Y,N,Benford's law experiments,,https://github.com/tomwhite/benford,maths,,,,Y,N
+benford,Y,N,Benford's law experiments,,https://github.com/tomwhite/benford,maths,,,,Y,Y
 berllan-electricity,Y,N,Tracking our electricity generation and usage,https://tom-e-white.com/berllan-electricity/electricity.html,https://github.com/tomwhite/berllan-electricity,"visualization,home",,https://share.evernote.com/note/04accf37-ff53-ba5a-ec5c-21730c0b8363,,Y,Y
 berllan-network,Y,N,How our house network works,,,home,,https://share.evernote.com/note/921da865-4699-41b3-9406-4e0cf05b9b34,,Y,N
-binarypi,Y,N,Calculating the nth binary digit of pi,,https://github.com/tomwhite/binarypi,maths,,,,Y,N
+binarypi,Y,N,Calculating the nth binary digit of pi,,https://github.com/tomwhite/binarypi,maths,,,,Y,Y
 birdcage,Y,Y,An Arduino recreation of Shannon's Bird Cage,https://github.com/tomwhite/birdcage,https://github.com/tomwhite/birdcage,"games,maker",2021-01-01,,,Y,Y
 birthday-roots,Y,N,Which year do you need to be born in so that you have a birthday year which is a power of your age?,,,maths,,,,Y,Y
 blockclock,Y,Y,A real digital clock,http://tomwhite.github.io/blockclock/,https://github.com/tomwhite/blockclock,visualization,2002-01-01,,,Y,Y
@@ -32,7 +32,7 @@ carbon-footprint,Y,N,Calculating our household carbon footprint in 2017,,,"green
 chernoff,Y,Y,A visual mood indicator. One of the first Java programs I ever wrote.,http://tomwhite.github.io/chernoff/,https://github.com/tomwhite/chernoff,visualization,1997-01-01,,,Y,Y
 chess,Y,N,Raw data for chess puzzle results,,,games,,https://share.evernote.com/note/176e7fb0-1970-4547-a2d6-8cc8a89c1ad2,,N,N
 chinesechequers,Y,N,Play Chinese Chequers against the computer,,https://github.com/tomwhite/chinesechequers,games,,https://share.evernote.com/note/74b55ebf-02fb-40a2-92bf-376142c596b7,,Y,Y
-core,Y,N,Old common Java code,,https://github.com/tomwhite/core,,,,,Y,N
+core,Y,N,Old common Java code,,https://github.com/tomwhite/core,,,,,Y,Y
 core-war,Y,N,Core war newsletters,,,,,https://share.evernote.com/note/c82ce3b7-40e8-7f9c-ff40-e7110ec00d3a,,N,N
 covid-19,Y,N,Pre-cursor to covid-19-uk-data,,,,,,,Y,N
 covid-19-uk-data,Y,N,COVID-19 UK Historical Data,,https://github.com/tomwhite/covid-19-uk-data,,,,,Y,Y
@@ -66,7 +66,7 @@ ffawyddog.com,Y,N,Ffawyddog Phonebox website,https://ffawyddog.com/,,local-commu
 freeloader,Y,N,Recreation of a cooperative group game from the Exploratorium in SF,,,games,,https://share.evernote.com/note/d8ea9e2c-ef50-4f44-b962-1840f2cf426e,,Y,N
 futoshiki,Y,N,Futoshiki solver using MiniZinc and js (superceded by futoshiki-hints),,,games,,,futoshiki-hints,Y,N
 futoshiki-hints,Y,Y,Futoshiki puzzle hints for humans,https://github.com/tomwhite/futoshiki-hints,https://github.com/tomwhite/futoshiki-hints,games,2021-02-01,https://share.evernote.com/note/528855e5-36e5-4e28-9012-cfed7b0e046b,futoshiki,Y,Y
-ga,Y,N,A simple Java package for writing genetic algorithms (GAs).,,https://github.com/tomwhite/ga,,,,,Y,N
+ga,Y,N,A simple Java package for writing genetic algorithms (GAs).,,https://github.com/tomwhite/ga,,,,,Y,Y
 gaussian-primes,Y,Y,Visualization of Gaussian primes,http://tomwhite.github.io/gaussian-primes/xmas-lines.html,https://github.com/tomwhite/gaussian-primes,visualization,2009-12-01,,,Y,Y
 ge-2024,Y,Y,An animation that relives the night of the Labour landslide,https://tom-e-white.com/ge-2024/,https://github.com/tomwhite/ge-2024,visualization,2024-07-01,,,Y,Y
 guac,Y,N,Exploring the genetic code,,https://github.com/tomwhite/guac,"visualization,genomics",,https://share.evernote.com/note/faeaf70a-9049-4a3e-be86-a9eecf97334c,,Y,Y
@@ -127,7 +127,7 @@ plastic-numbers,Y,N,Visualization of 3D Padovan Sequences,,,visualization,,https
 polarize,Y,N,A new optical puzzle,,https://github.com/tomwhite/polarize,games,,https://share.evernote.com/note/f4f0c48a-1535-5ade-3c38-677efa83d0f6,,Y,Y
 pong,Y,Y,"An Arduino port of pypaddle, which is ""a paddle ball bouncing game very similar to Pong""",https://github.com/tomwhite/pong,https://github.com/tomwhite/pong,"games,maker,retro-computing",2023-01-01,,,Y,Y
 predict_pv_yield_nwp,N,N,Build a baseline model for predicting PV yield using NWP (numerical weather predictions),,https://github.com/openclimatefix/predict_pv_yield_nwp,,,https://share.evernote.com/note/a4894487-bb89-41a5-b557-bc9d0c2328a7,,Y,Y
-prisonersdilemma,Y,N,Axelrod's Iterated Prisoners' Dilemma contests,,https://github.com/tomwhite/prisonersdilemma,games,,,,Y,N
+prisonersdilemma,Y,N,Axelrod's Iterated Prisoners' Dilemma contests,,https://github.com/tomwhite/prisonersdilemma,games,,,,Y,Y
 project-curation,Y,N,"Curating, publishing, and visualizing my projects",,,visualization,,https://share.evernote.com/note/53e54865-e278-4115-b108-698ddc9dec49,,Y,Y
 projecteuler,Y,N,A few Project Euler puzzle solutions,,,,,,,Y,N
 pyodide-curses,Y,N,Earlier version of pyodide-curses-mar-2022,,,,,https://share.evernote.com/note/897b1c9d-d3f5-3d24-de88-3547f4702163,pyodide-curses-mar-2022,N,N
@@ -165,7 +165,7 @@ tomwhite-website,Y,N,Old website (replaced by tomwhite.github.com),,,,,,,N,N
 tomwhite-website-new,Y,N,Local push target for my website (tomwhite.github.com),,,,,,,Y,N
 tomwhite.github.com,Y,N,My website (tom-e-white.com),https://tom-e-white.com/,https://github.com/tomwhite/tomwhite.github.com,,,https://share.evernote.com/note/3b89cc18-98a1-4597-99cc-7b7c77dfd870,,Y,Y
 topple,Y,N,Unsuccessful experiment to create a balancing game using blocks (based on Nature's blox),,,games,,https://share.evernote.com/note/6360a89b-73bc-fef6-b969-8eb966ff21eb,,Y,N
-tournesol,Y,N,Phyllotaxis in Java,,,"visualization,maths",,,,Y,N
+tournesol,Y,N,Phyllotaxis in Java,,,"visualization,maths",,,,Y,Y
 tournesol-js,Y,N,Phyllotaxis in JavaScript,,,"visualization,maths",,,,Y,N
 tree-preservation-orders,Y,N,Unfinished code to analyse Welsh tree preservation orders dataset,,,local-community,,,,N,N
 vegbox,Y,N,Scrape Riverford website to find what's in this week's vegbox,,,home,,,,N,N

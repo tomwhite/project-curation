@@ -158,6 +158,7 @@ superellipse,Y,Y,A program to generate Piet Hein's superellipses.,https://observ
 superfarmer,Y,N,Python implementation of the Super Farmer board game,,,games,,https://share.evernote.com/note/581a24e1-5fac-4802-8064-17d8f87ac21e,,Y,N
 t1d-genetic-risk-score,Y,N,Code for calculating an individual's T1D genetic risk score from their 23andMe data,,https://github.com/tomwhite/t1d-genetic-risk-score,t1d,,,,Y,Y
 tennis-ball-parabola,Y,Y,Plotting a parabola by filming a tennis ball throw.,http://www.tom-e-white.com/2015/03/tennis-ball-parabola.html,https://github.com/tomwhite/tennis-ball-parabola,visualization,2015-03-01,,,Y,Y
+thehill,Y,Y,A two-player game from 1985 written in Sinclair QL SuperBASIC,https://tom-e-white.com/thehill/,https://github.com/tomwhite/thehill,"games,retro-computing",2025-08-16,https://share.evernote.com/note/ff49d3a8-48c0-428c-8428-62c1e9ee937b,zx81-frogging,,
 thermal-camera,Y,N,Code and data for running thermal camera surveys,,,local-community,,https://share.evernote.com/note/07ff3b63-fc12-e5e3-ce44-353caadcb6f7,,N,N
 tidepool-cli-tools,Y,N,Loading historical FreeStyle Libre data into Tidepool,,https://github.com/tomwhite/tidepool-cli-tools,t1d,,https://share.evernote.com/note/b5e831b6-703e-462f-84f7-e4c3b498107a,,Y,Y
 tomwhite-hba1c,Y,N,Plots of my HbA1c data,,,t1d,,https://share.evernote.com/note/d260548b-d02c-4da2-8940-0ba505ea6f97,,Y,N
@@ -180,7 +181,7 @@ zx81-dat-tape-reader,N,N,Read data from .wav samples of old ZX81 data tapes,,htt
 zx81-frogging,Y,Y,The first program I ever wrote,http://tom-e-white.com/zx81-frogging/web/frogging.html,https://github.com/tomwhite/zx81-frogging,"games,retro-computing",2018-01-01,,,Y,Y
 zx81-javascript-emulator,N,N,A fork of Simon Holdsworth's JtyOne JavaScript Emulator (of the Sinclair ZX81.),,https://github.com/hammingweight/zx81-javascript-emulator,retro-computing,,,,Y,Y
 zx81-not-only-30-programs,Y,Y,"Run the programs from ""Not Only 30 Programs for the Sinclair ZX81"" in your browser",https://tomwhite.github.io/zx81-not-only-30-programs/web/index.html,https://github.com/tomwhite/zx81-not-only-30-programs,"games,retro-computing",2023-01-01,,,Y,Y
-zx81-p-file-kaitai,Y,N,A Kaitai Struct definition for the ZX81 P file format.,,,retro-computing,,,,N,N
+zx81-p-file-kaitai,Y,N,A Kaitai Struct definition for the ZX81 P file format.,,https://github.com/tomwhite/zx81-p-file-kaitai,retro-computing,,,,N,N
 zx81-p-file-viewer,Y,N,ZX81 P file viewer,,,retro-computing,,,,N,N
 zx81-refurb,Y,Y,How I refurbished my ZX81,https://tom-e-white.com/2022/12/refurbishing-my-zx81.html,https://github.com/tomwhite/zx81-refurb,"maker,retro-computing",2022-12-01,,,Y,Y
 zxtext2p,Y,N,A modified version of ZXText2P to add a `-d` option to collapse the display file,,https://github.com/tomwhite/zxtext2p,retro-computing,,,,Y,Y

@@ -1,5 +1,21 @@
 [
   {
+    "name": "thehill",
+    "description": "A two-player game from 1985 written in Sinclair QL SuperBASIC",
+    "homepage": "https://tom-e-white.com/thehill/",
+    "html_url": "https://github.com/tomwhite/thehill",
+    "topics": "games,retro-computing",
+    "date": "2025-08-16"
+  },
+  {
+    "name": "ardubat",
+    "description": "Visualizations of bat activity over the year using an Arduino bat detector",
+    "homepage": "https://observablehq.com/d/682fb4043d9dadb7",
+    "html_url": "https://github.com/tomwhite/ardubat",
+    "topics": "maker,visualization",
+    "date": "2025-07-20"
+  },
+  {
     "name": "false-summits",
     "description": "Visualizing false summits from GPX route traces",
     "homepage": "https://tom-e-white.com/false-summits/",
@@ -272,18 +288,18 @@
     "date": "2002-04-01"
   },
   {
-    "name": "superellipse",
-    "description": "A program to generate Piet Hein's superellipses.",
-    "homepage": "https://observablehq.com/@tomwhite/superellipse-generator",
-    "html_url": "https://github.com/tomwhite/superellipse",
-    "topics": "visualization",
-    "date": "2002-03-01"
-  },
-  {
     "name": "longview",
     "description": "A way of looking at time from a long distance.",
     "homepage": "http://tomwhite.github.io/longview/",
     "html_url": "https://github.com/tomwhite/longview",
+    "topics": "visualization",
+    "date": "2002-03-01"
+  },
+  {
+    "name": "superellipse",
+    "description": "A program to generate Piet Hein's superellipses.",
+    "homepage": "https://observablehq.com/@tomwhite/superellipse-generator",
+    "html_url": "https://github.com/tomwhite/superellipse",
     "topics": "visualization",
     "date": "2002-03-01"
   },
@@ -317,6 +333,6 @@
     "homepage": "http://tomwhite.github.io/chernoff/",
     "html_url": "https://github.com/tomwhite/chernoff",
     "topics": "visualization",
-    "date": "1997-01-01"
+    "date": "1997-04-01"
   }
 ]

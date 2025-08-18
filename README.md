@@ -22,6 +22,13 @@ Run `python -m http.server`
 python post-process-db.py
 ```
 
+* Regen legacy projects.json
+
+```shell
+python generate-legacy-project-json.py
+cp data/projects-generated.json ../tomwhite.github.com/projects/projects.json
+```
+
 ## More queries
 
 ```shell

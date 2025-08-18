@@ -5,7 +5,7 @@ name,my_project,published,description,homepage,html_url,topics,date,evernote_url
 aboutme,Y,N,Old website (replaced by tomwhite.github.com),,,,,,,Y,N
 alhambra,Y,Y,A Java API for experimenting with tilings and patterns.,http://tomwhite.github.io/alhambra/,https://github.com/tomwhite/alhambra,visualization,1998-08-01,,,Y,Y
 apportionment,Y,N,Calculating apportionments for the House of Representatives using the Huntington-Hill method.,https://tom-e-white.com/2012/12/apportionment.html,https://github.com/tomwhite/apportionment,maths,2012-07-01,https://share.evernote.com/note/316d225b-ba3e-43a7-8771-28dcbf48820c,,Y,Y
-ardubat,Y,Y,Visualizations of bat activity over the year using an Arduino bat detector,https://observablehq.com/d/682fb4043d9dadb7,https://github.com/tomwhite/ardubat,"maker,visualization",,https://share.evernote.com/note/005cb26b-8433-4a21-bf7a-bd0015405d1f,,Y,Y
+ardubat,Y,Y,Visualizations of bat activity over the year using an Arduino bat detector,https://observablehq.com/d/682fb4043d9dadb7,https://github.com/tomwhite/ardubat,"maker,visualization",2025-07-20,https://share.evernote.com/note/005cb26b-8433-4a21-bf7a-bd0015405d1f,,Y,Y
 Arduino_SMC,N,N,Mike's Solar Metric Clock,,,,,https://share.evernote.com/note/d584b440-ae44-4321-ae65-5fb80a4cc7a2,,Y,Y
 array-api-tests,N,N,,,,,,,,Y,Y
 array-api-tests-dask,Y,N,,,,arrays,,,,Y,Y

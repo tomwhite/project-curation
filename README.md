@@ -15,7 +15,7 @@ Run `python -m http.server`
 
 ### Git commits
 
-* Update the commits csv (see `git-commits.sh` command below)
+* Update the commits csv (see `git-status.sh` command below)
 * Update projects DB with git status:
 
 ```shell
@@ -26,7 +26,7 @@ python post-process-db.py
 
 ```shell
 python generate-legacy-project-json.py
-cp data/projects-generated.json ../tomwhite.github.com/projects/projects.json
+diff data/projects-generated.json ../tomwhite.github.com/projects/projects.json
 ```
 
 ## More queries

@@ -102,6 +102,7 @@ leprechauns,N,N
 leveltheplayingfield,Y,Y
 leveltheplayingfieldchs,Y,N
 libre-nightscout-uploader,Y,Y
+lidar-house,N,N
 llangattock-place-plan,Y,Y
 longdiary,N,N
 longview,Y,Y
@@ -121,8 +122,8 @@ old-projects,Y,N
 onair,Y,N
 op-art,Y,Y
 op-art-dask,Y,N
-OqtaDrive-uPCB-v1.2,Y,Y
-OqtaDrive-uPCB-v1.2.zip,N,N
+oqtadrive,Y,Y
+oqtadrive-release,N,N
 outguessing,Y,Y
 outguessing-java,Y,N
 pangrams,Y,Y
@@ -141,7 +142,7 @@ projects-workspace.Rproj,N,N
 pyodide-curses,N,N
 pyodide-curses-mar-2022,Y,N
 pypaddle,Y,Y
-ql,N,N
+ql,Y,N
 qltools,Y,Y
 qs,Y,N
 qxltools,Y,Y
@@ -161,11 +162,13 @@ shrdlu-src,Y,N
 six-insect-game,Y,N
 six-insect-game-ludii,N,N
 spirals,Y,N
+sQLux,Y,Y
 stats-wales-dataframe,Y,Y
 superellipse,Y,Y
 superfarmer,Y,N
 t1d-genetic-risk-score,Y,Y
 tennis-ball-parabola,Y,Y
+thehill,Y,Y
 thermal-camera,N,N
 tidepool-cli-tools,Y,Y
 tomwhite-hba1c,Y,N
@@ -188,7 +191,7 @@ zx81-dat-tape-reader,Y,Y
 zx81-frogging,Y,Y
 zx81-javascript-emulator,Y,Y
 zx81-not-only-30-programs,Y,Y
-zx81-p-file-kaitai,N,N
+zx81-p-file-kaitai,Y,Y
 zx81-p-file-viewer,N,N
 zx81-refurb,Y,Y
 zxspectrum,N,N

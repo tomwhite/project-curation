@@ -59,15 +59,17 @@
               html += '<div class="row mb-4">\n';
             }
             var project = projects[i];
+            var logo_url = project.logo_url ? project.logo_url : `https://raw.githubusercontent.com/tomwhite/${project.name}/master/logo.png`
+            console.log(project.name, logo_url)
             html += [
               '<div class="col-sm-3">',
               '  <div class="card h-100">',
               '    <div class="embed-responsive embed-responsive-1by1">',
               '      <a href="' +
                 project.homepage +
-                '"><img class="card-img-top embed-responsive-item" src="https://raw.githubusercontent.com/tomwhite/' +
-                project.name +
-                '/master/logo.png" alt="' +
+                '"><img class="card-img-top embed-responsive-item" src="' +
+                logo_url +
+                '" alt="' +
                 project.name +
                 ' logo"></a>',
               "    </div>",

@@ -1,5 +1,29 @@
 [
   {
+    "name": "ql-metropolis-map",
+    "description": "A map of the QL Metropolis game from 1985",
+    "homepage": "https://tom-e-white.com/ql-metropolis-map/",
+    "html_url": "https://github.com/tomwhite/ql-metropolis-map",
+    "topics": "games,retro-computing",
+    "date": "2026-02-28"
+  },
+  {
+    "name": "ql-cavern-map",
+    "description": "A map of the QL Cavern game from 1985",
+    "homepage": "https://tom-e-white.com/ql-cavern-map/",
+    "html_url": "https://github.com/tomwhite/ql-cavern-map",
+    "topics": "games,retro-computing",
+    "date": "2026-02-01"
+  },
+  {
+    "name": "polarize",
+    "description": "A light puzzle",
+    "homepage": "https://tom-e-white.com/polarize/",
+    "html_url": "https://github.com/tomwhite/polarize",
+    "topics": "games",
+    "date": "2026-01-01"
+  },
+  {
     "name": "lidar-house",
     "description": "A Minecraft-style rendering of my house using Welsh Government LiDAR data",
     "homepage": "https://observablehq.com/d/6fc264dbfd8361b8",
@@ -28,7 +52,7 @@
     "description": "Visualizing false summits from GPX route traces",
     "homepage": "https://tom-e-white.com/false-summits/",
     "html_url": "https://github.com/tomwhite/false-summits",
-    "topics": "visualization",
+    "topics": "geo,visualization",
     "date": "2025-05-30"
   },
   {
@@ -36,7 +60,7 @@
     "description": "An animation that relives the night of the Labour landslide",
     "homepage": "https://tom-e-white.com/ge-2024/",
     "html_url": "https://github.com/tomwhite/ge-2024",
-    "topics": "visualization",
+    "topics": "geo,visualization",
     "date": "2024-07-01"
   },
   {
@@ -148,7 +172,7 @@
     "description": "Minimal pixellated maps",
     "homepage": "https://tomwhite.github.io/mappix/",
     "html_url": "https://github.com/tomwhite/mappix",
-    "topics": "visualization",
+    "topics": "geo,visualization",
     "date": "2018-10-01"
   },
   {
@@ -236,7 +260,7 @@
     "description": "A program to plot the time of dusk over the year for any given location on the Earth's surface",
     "homepage": "http://tomwhite.github.io/dusk/",
     "html_url": "https://github.com/tomwhite/dusk",
-    "topics": "visualization",
+    "topics": "geo,visualization",
     "date": "2014-01-01"
   },
   {
@@ -252,7 +276,7 @@
     "description": "A game: how far is the Moon from the Earth?",
     "homepage": "https://tomwhite.github.io/earth-moon-game",
     "html_url": "https://github.com/tomwhite/earth-moon-game",
-    "topics": "games,visualization",
+    "topics": "games,geo,visualization",
     "date": "2013-03-01"
   },
   {
@@ -260,16 +284,8 @@
     "description": "An app for calculating the shortest distance to the sea from any point on Earth.",
     "homepage": "https://how-far-away-is-the-sea.appspot.com/",
     "html_url": "https://github.com/tomwhite/how-far-away-is-the-sea",
-    "topics": "maths,visualization",
+    "topics": "geo,maths,visualization",
     "date": "2012-12-31"
-  },
-  {
-    "name": "d3troit",
-    "description": "A d3 visualization of the changing populations of the largest cities in the US",
-    "homepage": "http://tomwhite.github.io/d3troit/index.html",
-    "html_url": "https://github.com/tomwhite/d3troit",
-    "topics": "visualization",
-    "date": "2012-07-01"
   },
   {
     "name": "apportionment",
@@ -280,11 +296,19 @@
     "date": "2012-07-01"
   },
   {
+    "name": "d3troit",
+    "description": "A d3 visualization of the changing populations of the largest cities in the US",
+    "homepage": "http://tomwhite.github.io/d3troit/index.html",
+    "html_url": "https://github.com/tomwhite/d3troit",
+    "topics": "visualization",
+    "date": "2012-07-01"
+  },
+  {
     "name": "isitdayornight",
     "description": "HTML 5 geolocation code that works out if it's day or night",
     "homepage": "https://tomwhite.github.io/isitdayornight/",
     "html_url": "https://github.com/tomwhite/isitdayornight",
-    "topics": "visualization",
+    "topics": "geo,visualization",
     "date": "2011-04-01"
   },
   {
@@ -312,18 +336,18 @@
     "date": "2002-04-01"
   },
   {
-    "name": "longview",
-    "description": "A way of looking at time from a long distance.",
-    "homepage": "http://tomwhite.github.io/longview/",
-    "html_url": "https://github.com/tomwhite/longview",
-    "topics": "visualization",
-    "date": "2002-03-01"
-  },
-  {
     "name": "superellipse",
     "description": "A program to generate Piet Hein's superellipses.",
     "homepage": "https://observablehq.com/@tomwhite/superellipse-generator",
     "html_url": "https://github.com/tomwhite/superellipse",
+    "topics": "visualization",
+    "date": "2002-03-01"
+  },
+  {
+    "name": "longview",
+    "description": "A way of looking at time from a long distance.",
+    "homepage": "http://tomwhite.github.io/longview/",
+    "html_url": "https://github.com/tomwhite/longview",
     "topics": "visualization",
     "date": "2002-03-01"
   },

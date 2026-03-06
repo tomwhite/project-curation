@@ -15,7 +15,13 @@ Run `python -m http.server`
 
 ### Git commits
 
-* Update the commits csv (see `git-status.sh` command below)
+* Activate venv
+
+```shell
+conda activate metaproject
+```
+
+* Update the commits csv (see `git-commits-all.sh` command below)
 * Update projects DB with git status:
 
 ```shell

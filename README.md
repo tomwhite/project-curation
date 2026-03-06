@@ -37,6 +37,7 @@ diff data/projects-generated.json ../tomwhite.github.com/projects/projects.json
 
 ### Professional open source projects
 
+Update local repos with changes
 ```shell
 cd repos
 for repo in bio2zarr cubed sgkit vcztools; do

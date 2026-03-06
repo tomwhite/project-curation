@@ -35,6 +35,22 @@ python generate-legacy-project-json.py
 diff data/projects-generated.json ../tomwhite.github.com/projects/projects.json
 ```
 
+### Professional open source projects
+
+```shell
+cd repos
+for repo in bio2zarr cubed sgkit vcztools; do
+  (cd $repo; git pull origin main)
+done
+cd ..
+```
+
+```shell
+./git-commits-work.sh > data/git-commits-work.csv # git commit counts for work projects by project and date
+sed -i '' 's/hadoop-pre-HADOOP-4687/hadoop/' data/git-commits-work.csv
+```
+
+
 ## More queries
 
 ```shell
@@ -44,7 +60,3 @@ diff data/projects-generated.json ../tomwhite.github.com/projects/projects.json
 ./git-status.sh > data/git-status.csv # whether project is in local git and github
 ```
 
-```shell
-./git-commits-work.sh > data/git-commits-work.csv # git commit counts for work projects by project and date
-sed -i '' 's/hadoop-pre-HADOOP-4687/hadoop/' data/git-commits-work.csv
-```

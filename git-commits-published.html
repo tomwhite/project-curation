@@ -10,7 +10,19 @@
       import { min, max, range } from "https://cdn.jsdelivr.net/npm/d3-array@3/+esm";
       import { timeYear, timeWeek } from "https://cdn.jsdelivr.net/npm/d3-time@3/+esm";
 
-      csv("data/git-commits.csv", autoType).then(data => {
+      Promise.all([
+          csv("data/git-commits.csv", autoType),
+          csv("data/projects-db.csv"),
+      ]).then(function(files) {
+        const commitData = files[0];
+        const projectData = files[1];
+
+        if (projectData.length === 0) return;
+        const publishedProjects = projectData.filter((d) =>
+          d.published === "Y"
+        ).map((d) => d.name);
+
+        const data = commitData.filter((d) => publishedProjects.includes(d.project));
         data.forEach(d => {
           d.date = new Date(d.date);
           d.week = timeWeek.floor(d.date);
@@ -34,6 +46,9 @@
 
         const fullData = [];
         for (const project of new Set(data.map(d => d.project))) {
+          if (!publishedProjects.includes(project)) {
+            continue;
+          }
           for (const week of allWeeks) {
             const key = `${project}|${week.toISOString()}`;
             if (commitsByWeek.get(key)) {
@@ -85,7 +100,7 @@
           marginLeft: 150,
           marginTop: 50,
           width: 1000,
-          height: 1500
+          height: 600
         });
 
         document.body.appendChild(chart);
@@ -95,7 +110,7 @@
   <body>
     <h1>Commits Dot Plot</h1>
     <p>
-      Each dot represents a project having commits during that week.
+      Each dot represents a project having commits during that week.  
     </p>
   </body>
 </html>

@@ -66,15 +66,16 @@
             Plot.dot(fullData, {
               x: "week",
               y: "project",
-              fill: "black", // ✅ Solid dots
-              r: 3, // ✅ Uniform size
+              fill: "black",
+              fillOpacity: 0.5,
+              r: 4,
               title: d => `Project: ${d.project}\nWeek: ${d.week.toISOString().split("T")[0]}\nCommits: ${d.num_commits}`
             }),
             Plot.ruleX(yearStarts, { stroke: "black", strokeWidth: 1, strokeOpacity: 0.5 })
           ],
           x: {
             type: "utc",
-            domain: [yearStarts[0], maxWeek], // ✅ Prevents axis overlap
+            domain: [yearStarts[0], maxWeek],
             ticks: yearStarts
           },
           y: {

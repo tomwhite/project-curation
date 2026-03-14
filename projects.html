@@ -41,6 +41,7 @@
       >).
     </p>
 
+    <div id="topic-buttons" class="mb-3 text-center"></div>
     <div class="container" id="projects"></div>
 
     <script>
@@ -53,55 +54,85 @@
           // In reverse chronological order
           projects = d3.sort(projects, (a, b) => d3.descending(a.date, b.date));
 
-          var html = "";
-          for (var i = 0; i < projects.length; i++) {
-            if (i % 4 == 0) {
-              html += '<div class="row mb-4">\n';
-            }
-            var project = projects[i];
-            var logo_url = project.logo_url ? project.logo_url : `https://raw.githubusercontent.com/tomwhite/${project.name}/master/logo.png`
-            console.log(project.name, logo_url)
-            html += [
-              '<div class="col-sm-3">',
-              '  <div class="card h-100">',
-              '    <div class="embed-responsive embed-responsive-1by1">',
-              '      <a href="' +
-                project.homepage +
-                '"><img class="card-img-top embed-responsive-item" src="' +
-                logo_url +
-                '" alt="' +
-                project.name +
-                ' logo"></a>',
-              "    </div>",
-              '    <div class="card-body">',
-              '      <a href="' +
-                project.homepage +
-                '"><h5 class="card-title">' +
-                project.name +
-                "</h5></a>",
-              '      <p class="card-text">' + project.description + "</p>",
-              '      <a href="' +
-                project.homepage +
-                '" class="card-link">More...</a>',
-              '      <a href="' +
-                project.html_url +
-                '" class="card-link">Code</a>',
-              "    </div>",
-              "  </div>",
-              "</div>",
-              "",
-            ].join("\n");
+          let activeTopic = null;
 
-            if (i % 4 == 3) {
-              html += "</div>\n";
-            }
+          // Extract unique topics and render filter buttons
+          const topics = Array.from(new Set(projects.flatMap(d => d.topics ? d.topics.split(",").map(t => t.trim()) : []))).sort();
+          const topicButtons = d3.select("#topic-buttons");
+          topicButtons.selectAll("button")
+              .data(topics)
+              .enter()
+              .append("button")
+              .attr("class", "btn btn-outline-primary mr-2")
+              .text(d => d)
+              .on("click", function(event, topic) {
+                  if (activeTopic === topic) {
+                      activeTopic = null;
+                      topicButtons.selectAll("button").classed("btn-primary", false).classed("btn-outline-primary", true);
+                  } else {
+                      activeTopic = topic;
+                      topicButtons.selectAll("button").classed("btn-primary", false).classed("btn-outline-primary", true);
+                      d3.select(this).classed("btn-outline-primary", false).classed("btn-primary", true);
+                  }
+                  renderProjects();
+              });
+
+          function renderProjects() {
+              const filtered = activeTopic
+                  ? projects.filter(d => d.topics && d.topics.split(",").map(t => t.trim()).includes(activeTopic))
+                  : projects;
+
+              var html = "";
+              for (var i = 0; i < filtered.length; i++) {
+                if (i % 4 == 0) {
+                  html += '<div class="row mb-4">\n';
+                }
+                var project = filtered[i];
+                var logo_url = project.logo_url ? project.logo_url : `https://raw.githubusercontent.com/tomwhite/${project.name}/master/logo.png`
+                html += [
+                  '<div class="col-sm-3">',
+                  '  <div class="card h-100">',
+                  '    <div class="embed-responsive embed-responsive-1by1">',
+                  '      <a href="' +
+                    project.homepage +
+                    '"><img class="card-img-top embed-responsive-item" src="' +
+                    logo_url +
+                    '" alt="' +
+                    project.name +
+                    ' logo"></a>',
+                  "    </div>",
+                  '    <div class="card-body">',
+                  '      <a href="' +
+                    project.homepage +
+                    '"><h5 class="card-title">' +
+                    project.name +
+                    "</h5></a>",
+                  '      <p class="card-text">' + project.description + "</p>",
+                  '      <a href="' +
+                    project.homepage +
+                    '" class="card-link">More...</a>',
+                  '      <a href="' +
+                    project.html_url +
+                    '" class="card-link">Code</a>',
+                  "    </div>",
+                  "  </div>",
+                  "</div>",
+                  "",
+                ].join("\n");
+
+                if (i % 4 == 3) {
+                  html += "</div>\n";
+                }
+              }
+
+              if (filtered.length % 4 != 0) {
+                html += "</div>\n";
+              }
+
+              document.getElementById("projects").innerHTML = html;
           }
 
-          if (projects.length % 4 != 0) {
-            html += "</div>\n";
-          }
-
-          document.getElementById("projects").innerHTML = html;
+          renderProjects();
       }).catch(error => console.error("Error loading CSV:", error));
     </script>
 

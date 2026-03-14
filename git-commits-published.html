@@ -119,7 +119,7 @@
         document.body.appendChild(chart);
 
         // Make y-axis project labels into clickable links
-        chart.querySelectorAll("text").forEach(text => {
+        chart.querySelectorAll('[aria-label="y-axis tick label"] text').forEach(text => {
           const name = text.textContent.trim();
           const url = homepageMap[name];
           if (url) {

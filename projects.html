@@ -42,6 +42,7 @@
     </p>
 
     <div id="topic-buttons" class="mb-3 text-center"></div>
+    <p id="result-count" class="text-center text-muted"></p>
     <div class="container" id="projects"></div>
 
     <script>
@@ -82,6 +83,13 @@
                   ? projects.filter(d => d.topics && d.topics.split(",").map(t => t.trim()).includes(activeTopic))
                   : projects;
 
+              const countEl = document.getElementById("result-count");
+              if (activeTopic) {
+                  countEl.textContent = `Showing ${filtered.length} of ${projects.length} projects`;
+              } else {
+                  countEl.textContent = `${projects.length} projects`;
+              }
+
               var html = "";
               for (var i = 0; i < filtered.length; i++) {
                 if (i % 4 == 0) {
@@ -99,7 +107,7 @@
                     logo_url +
                     '" alt="' +
                     project.name +
-                    ' logo"></a>',
+                    ' logo" onerror="this.closest(\'.embed-responsive\').style.display=\'none\'"></a>',
                   "    </div>",
                   '    <div class="card-body">',
                   '      <a href="' +
@@ -136,59 +144,5 @@
       }).catch(error => console.error("Error loading CSV:", error));
     </script>
 
-    <!-- <script type="text/javascript">
-      fetch("./projects.json")
-        .then((response) => response.json())
-        .then((data) => {
-          const projects = data.filter((d) => d.topics.includes("maths"));
-          var html = "";
-          for (var i = 0; i < projects.length; i++) {
-            if (i % 4 == 0) {
-              html += '<div class="row mb-4">\n';
-            }
-            var project = projects[i];
-            html += [
-              '<div class="col-sm-3">',
-              '  <div class="card h-100">',
-              '    <div class="embed-responsive embed-responsive-1by1">',
-              '      <a href="' +
-                project.homepage +
-                '"><img class="card-img-top embed-responsive-item" src="https://raw.githubusercontent.com/tomwhite/' +
-                project.name +
-                '/master/logo.png" alt="' +
-                project.name +
-                ' logo"></a>',
-              "    </div>",
-              '    <div class="card-body">',
-              '      <a href="' +
-                project.homepage +
-                '"><h5 class="card-title">' +
-                project.name +
-                "</h5></a>",
-              '      <p class="card-text">' + project.description + "</p>",
-              '      <a href="' +
-                project.homepage +
-                '" class="card-link">More...</a>',
-              '      <a href="' +
-                project.html_url +
-                '" class="card-link">Code</a>',
-              "    </div>",
-              "  </div>",
-              "</div>",
-              "",
-            ].join("\n");
-
-            if (i % 4 == 3) {
-              html += "</div>\n";
-            }
-          }
-
-          if (projects.length % 4 != 0) {
-            html += "</div>\n";
-          }
-
-          document.getElementById("projects").innerHTML = html;
-        });
-    </script> -->
   </body>
 </html>

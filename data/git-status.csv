@@ -10,7 +10,7 @@ Arduino_SMC,Y,Y
 array-api-tests,Y,Y
 array-api-tests-dask,Y,Y
 array-api-tests-op-art,Y,Y
-array-tracker,Y,N
+array-tracker,Y,Y
 array-tracker-array-api-tests,Y,Y
 articles,Y,Y
 atomiclisp,Y,Y
@@ -46,7 +46,6 @@ d3troit,Y,Y
 dask,Y,Y
 dask-cloud-gpu,Y,N
 dask-executor-scheduler,Y,Y
-datashader,Y,Y
 datashader-leaflet,Y,N
 datavision,Y,Y
 datavision-code,Y,Y
@@ -98,7 +97,7 @@ inversions,Y,Y
 isitdayornight,Y,Y
 jamie-oliver-recipes,Y,N
 jekyll-website,N,N
-knitting-squares,Y,N
+knitting-squares,Y,Y
 l-game,Y,N
 l-systems,Y,Y
 leaning-chairs,Y,Y

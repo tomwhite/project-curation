@@ -3,14 +3,14 @@ name,my_project,published,description,homepage,html_url,logo_url,topics,date,eve
 23andme-impute,N,N,Run IMPUTE2 on 23 and me,,,,genomics,,https://share.evernote.com/note/6e9ff10e-ebdb-1c5b-65ea-153b11205697,,,Y,Y
 8-bit-computer,Y,Y,Ben Eater's 8-bit computer in CircuitJS1,https://github.com/tomwhite/8-bit-computer,https://github.com/tomwhite/8-bit-computer,,retro-computing,2023-02-01,,,Ben Eater,Y,Y
 aboutme,Y,N,Old website (replaced by tomwhite.github.com),,,,,,,,,Y,N
-alhambra,Y,Y,A Java API for experimenting with tilings and patterns.,http://tomwhite.github.io/alhambra/,https://github.com/tomwhite/alhambra,,visualization,1998-08-01,,,"Martin Gardner, Penrose Tiles",Y,Y
+alhambra,Y,Y,A Java API for experimenting with tilings and patterns.,http://tomwhite.github.io/alhambra/,https://github.com/tomwhite/alhambra,,"gardner,visualization",1998-08-01,,,"Martin Gardner, Penrose Tiles",Y,Y
 apportionment,Y,Y,Calculating apportionments for the House of Representatives using the Huntington-Hill method.,https://tom-e-white.com/2012/12/apportionment.html,https://github.com/tomwhite/apportionment,,maths,2012-07-01,https://share.evernote.com/note/316d225b-ba3e-43a7-8771-28dcbf48820c,,,Y,Y
-ardubat,Y,Y,Visualizations of bat activity over the year using an Arduino bat detector,https://observablehq.com/d/682fb4043d9dadb7,https://github.com/tomwhite/ardubat,,"maker,visualization",2025-07-20,https://share.evernote.com/note/005cb26b-8433-4a21-bf7a-bd0015405d1f,,ArduBat project,Y,Y
+ardubat,Y,Y,Visualizations of bat activity over the year using an Arduino bat detector,https://observablehq.com/d/682fb4043d9dadb7,https://github.com/tomwhite/ardubat,,"maker,nature,visualization",2025-07-20,https://share.evernote.com/note/005cb26b-8433-4a21-bf7a-bd0015405d1f,,ArduBat project,Y,Y
 Arduino_SMC,N,N,Mike's Solar Metric Clock,,,,,,https://share.evernote.com/note/d584b440-ae44-4321-ae65-5fb80a4cc7a2,,,Y,Y
 array-api-tests,N,N,,,,,,,,,,Y,Y
 array-api-tests-dask,Y,N,,,,,arrays,,,,,Y,Y
 array-api-tests-op-art,Y,N,,,,,arrays,,,op-art,,Y,Y
-array-tracker,Y,N,An implementation of the Python array API standard that tracks array element dependencies,,,,arrays,,https://share.evernote.com/note/a4a0d576-33ee-4af6-baa4-a3769349b6bf,op-art,,Y,N
+array-tracker,Y,N,An implementation of the Python array API standard that tracks array element dependencies,,,,arrays,2023-02-23,https://share.evernote.com/note/a4a0d576-33ee-4af6-baa4-a3769349b6bf,op-art,,Y,Y
 articles,Y,N,Collection of my old technical articles,,https://github.com/tomwhite/articles,,,,,,,Y,Y
 atomiclisp,Y,N,"Atomic LISP is my reformulation of Gregory J. Chaitin's version of LISP that he uses in his books ""The Unknowable"" (Springer Verlag, 1999) and ""The Limits of Mathematics"" (Springer Verlag 1998).",,https://github.com/tomwhite/atomiclisp,,,,,,Gregory J. Chaitin,Y,Y
 autotune-docker,Y,N,Running OpenAPS autotune in Docker,,,,t1d,,https://share.evernote.com/note/90a263d6-e4cd-4bf4-8507-07124d57160c,,,N,N
@@ -22,7 +22,7 @@ benford,Y,N,Benford's law experiments,,https://github.com/tomwhite/benford,,math
 berllan-electricity,Y,N,Tracking our electricity generation and usage,https://tom-e-white.com/berllan-electricity/electricity.html,https://github.com/tomwhite/berllan-electricity,,"visualization,home",,https://share.evernote.com/note/04accf37-ff53-ba5a-ec5c-21730c0b8363,,,Y,Y
 berllan-network,Y,N,How our house network works,,,,home,,https://share.evernote.com/note/921da865-4699-41b3-9406-4e0cf05b9b34,,,Y,N
 binarypi,Y,N,Calculating the nth binary digit of pi,,https://github.com/tomwhite/binarypi,,maths,,,,"Bailey, Borwein and Plouffe",Y,Y
-birdcage,Y,Y,An Arduino recreation of Shannon's Bird Cage,https://github.com/tomwhite/birdcage,https://github.com/tomwhite/birdcage,,"games,maker",2021-01-01,,,"Gardner, Martin, (1961), More Mathematical Puzzles and Diversions, Penguin Books",Y,Y
+birdcage,Y,Y,An Arduino recreation of Shannon's Bird Cage,https://github.com/tomwhite/birdcage,https://github.com/tomwhite/birdcage,,"games,gardner,maker",2021-01-01,,,"Gardner, Martin, (1961), More Mathematical Puzzles and Diversions, Penguin Books",Y,Y
 birthday-roots,Y,N,Which year do you need to be born in so that you have a birthday year which is a power of your age?,,https://github.com/tomwhite/birthday-roots,,maths,,,,,Y,Y
 blockclock,Y,Y,A real digital clock,http://tomwhite.github.io/blockclock/,https://github.com/tomwhite/blockclock,,visualization,2002-01-01,,,,Y,Y
 blockclock-matrix,Y,N,Blockclock as an LED matrix,,,,"visualization,maker",,https://share.evernote.com/note/7105a9dc-459b-4420-fe78-a884cc314071,,,Y,N
@@ -33,19 +33,18 @@ chernoff,Y,Y,A visual mood indicator. One of the first Java programs I ever wrot
 chess,Y,N,Raw data for chess puzzle results,,,,games,,https://share.evernote.com/note/176e7fb0-1970-4547-a2d6-8cc8a89c1ad2,,,N,N
 chinesechequers,Y,N,Play Chinese Chequers against the computer,,https://github.com/tomwhite/chinesechequers,,games,,https://share.evernote.com/note/74b55ebf-02fb-40a2-92bf-376142c596b7,,,Y,Y
 core,Y,N,Old common Java code,,https://github.com/tomwhite/core,,,,,,,Y,Y
-core-war,Y,N,Core war newsletters,,,,,,https://share.evernote.com/note/c82ce3b7-40e8-7f9c-ff40-e7110ec00d3a,,"A. K. Dewdney, 'The Armchair Universe'",N,N
+core-war,Y,N,Core war newsletters,,,,games,,https://share.evernote.com/note/c82ce3b7-40e8-7f9c-ff40-e7110ec00d3a,,"A. K. Dewdney, 'The Armchair Universe'",N,N
 covid-19,Y,N,Pre-cursor to covid-19-uk-data,,,,,,,,,Y,N
 covid-19-uk-data,Y,N,COVID-19 UK Historical Data,,https://github.com/tomwhite/covid-19-uk-data,,,,,,,Y,Y
 crick-archive-catalog,Y,N,Scripts for processing CDAC catalog metadata,,,,local-community,,,,,N,N
 crick-parking,Y,N,Crickhowell Car Park Analysis,,https://github.com/tomwhite/crick-parking,,local-community,,,,,Y,Y
 crick1881,Y,N,"Scripts for creating visualizations for Eliane's book ""Crickhowell 1881""",,,,local-history,,,,,Y,N
 cubed-async,Y,N,Throwaway code for making Cubed async,,,,arrays,,,,,N,N
-cubesum,Y,Y,The sum of the first n cubes equals the square of the sum of the first n numbers.,http://tomwhite.github.io/cubesum,https://github.com/tomwhite/cubesum,,visualization,2015-10-01,,,"Martin Gardner, Knotted Doughnuts",Y,Y
+cubesum,Y,Y,The sum of the first n cubes equals the square of the sum of the first n numbers.,http://tomwhite.github.io/cubesum,https://github.com/tomwhite/cubesum,,"gardner,visualization",2015-10-01,,,"Martin Gardner, Knotted Doughnuts",Y,Y
 d3troit,Y,Y,A d3 visualization of the changing populations of the largest cities in the US,http://tomwhite.github.io/d3troit/index.html,https://github.com/tomwhite/d3troit,,visualization,2012-07-01,,,,Y,Y
 dask,N,N,,,,,,,,,,Y,Y
 dask-cloud-gpu,Y,N,Investigation for running Dask on GPUs,,,,arrays,,,,,Y,N
 dask-executor-scheduler,Y,N,A Dask scheduler that uses a Python _concurrent.futures.Executor_ to run tasks.,,https://github.com/tomwhite/dask-executor-scheduler,,arrays,,,,,Y,Y
-datashader,N,N,,,,,,,,,,Y,Y
 datashader-leaflet,Y,N,Using Leaflet to view Datashader visualizations,,,,visualization,,,,,Y,N
 datavision,Y,Y,A weekly data visualization in 2020,http://tom-e-white.com/datavision/,https://github.com/tomwhite/datavision-code,,visualization,2020-01-01,,,,Y,Y
 datavision-code,Y,N,Code for Datavision 2020,https://tom-e-white.com/datavision/,https://github.com/tomwhite/datavision-code,,visualization,,,,,Y,Y
@@ -89,12 +88,13 @@ ingreedy-v0,Y,N,Original ingreedy,,,,t1d,,,,,Y,N
 ingreedy-visualization,Y,N,Experiments in visualizing food nutrients,,,,t1d,,,,,Y,N
 ingreedy-word2vec,Y,N,Early experiments using ingreedy data with Diet2Vec,,,,t1d,,,,,N,N
 interlocking-cube,Y,N,Finding interlocking cube puzzles,,,,games,,https://share.evernote.com/note/5de6defd-9d50-48c1-9a42-ae44397325d0,,,Y,N
-inversions,Y,Y,"Inspired by Scott Kim's ""Inversions"" I made two designs for my daughters.",https://github.com/tomwhite/inversions,https://github.com/tomwhite/inversions,,visualization,2015-12-01,,,"Martin Gardner, and Scott Kim, ""Inversions""",Y,Y
+inversions,Y,Y,"Inspired by Scott Kim's ""Inversions"" I made two designs for my daughters.",https://github.com/tomwhite/inversions,https://github.com/tomwhite/inversions,,"family,gardner,visualization",2015-12-01,,,"Martin Gardner, and Scott Kim, ""Inversions""",Y,Y
 isitdayornight,Y,Y,HTML 5 geolocation code that works out if it's day or night,https://tomwhite.github.io/isitdayornight/,https://github.com/tomwhite/isitdayornight,,"geo,visualization",2011-04-01,,,,Y,Y
 jamie-oliver-recipes,Y,N,Scraping recipes for carb counts,,,,t1d,,https://share.evernote.com/note/125fd63a-d01d-4c37-ab24-2fce48503808,,,Y,N
 jekyll-website,Y,N,Old version of tomwhite.github.com,,,,,,,,,N,N
+knitting-squares,Y,Y,A knitting pattern where adjacent squares don't share a background or foreground colour,https://gist.github.com/tomwhite/8db2999b3281b54ced92773805aa70a1,https://gist.github.com/tomwhite/8db2999b3281b54ced92773805aa70a1,,"family,maker,visualization",2025-05-26,https://share.evernote.com/note/74a4b5f4-04cd-1b4c-ccfa-143813b78bce,,,Y,Y
 l-game,Y,N,Java program to explore properties of the L Game,,,,games,,https://share.evernote.com/note/90bc4ec0-0260-4be2-95ef-91c840204d92,,Edward de Bono,Y,N
-l-systems,Y,Y,Visualizing L-Systems,http://tomwhite.github.io/l-systems/,https://github.com/tomwhite/l-systems,,visualization,2010-11-01,,,The Algorithmic Beauty of Plants,Y,Y
+l-systems,Y,Y,Visualizing L-Systems,http://tomwhite.github.io/l-systems/,https://github.com/tomwhite/l-systems,,"gardner,visualization",2010-11-01,,,The Algorithmic Beauty of Plants,Y,Y
 leaning-chairs,Y,Y,A curve created by chairs leaning against one another,http://tomwhite.github.io/leaning-chairs/,https://github.com/tomwhite/leaning-chairs,,visualization,2015-04-01,,,,Y,Y
 leprechauns,Y,N,"SVG to reproduce ""Vanishing Leprechauns"" from Math Bytes",,,,,,https://share.evernote.com/note/5aa68fa4-2ace-46b4-95a3-ff5d0f5a3061,,Math Bytes,N,N
 leveltheplayingfield,Y,N,Analysis of school funding in Wales,https://leveltheplayingfield.wales/,https://github.com/tomwhite/leveltheplayingfield,,local-community,,https://share.evernote.com/note/68644aa2-e2f8-469d-8fea-4b9347b11a49,,,Y,Y
@@ -105,18 +105,18 @@ llangattock-place-plan,Y,N,Llangattock Place Plan Statistics,https://observableh
 longview,Y,Y,A way of looking at time from a long distance.,http://tomwhite.github.io/longview/,https://github.com/tomwhite/longview,,visualization,2002-03-01,,,,Y,Y
 lottie-numbers,Y,N,"A Lottie number is a number for which the sum of its proper divisors (excluding 1), plus the number of divisor pairs is the number itself.",,,,maths,,https://share.evernote.com/note/0f05cc93-2c68-46d1-98d4-45f765431836,,,N,N
 mackerel,Y,N,"Which station on the London Tube map doesn't share any letters with ""mackerel""?",,https://gist.github.com/tomwhite/71a8a736d71b939d2eb46191109a76e8,,,,https://share.evernote.com/note/5af5177d-8c60-46fe-a75a-b0a6025b1b5e,,,N,N
-mandelbrot-1989,Y,Y,My programs to draw the Mandelbrot Set from 1989 using GFA Basic on the Atari ST.,https://github.com/tomwhite/mandelbrot-1989,https://github.com/tomwhite/mandelbrot-1989,,"retro-computing,visualization",2020-12-01,,,Martin Gardner,Y,Y
+mandelbrot-1989,Y,Y,My programs to draw the Mandelbrot Set from 1989 using GFA Basic on the Atari ST.,https://github.com/tomwhite/mandelbrot-1989,https://github.com/tomwhite/mandelbrot-1989,,"gardner,retro-computing,visualization",2020-12-01,,,Martin Gardner,Y,Y
 mappix,Y,Y,Minimal pixellated maps,https://tomwhite.github.io/mappix/,https://github.com/tomwhite/mappix,,"geo,visualization",2018-10-01,,,,Y,Y
 mastermind,Y,Y,A program for playing the mastermind board game,https://github.com/tomwhite/mastermind,https://github.com/tomwhite/mastermind,,games,2014-12-01,,,,Y,Y
 metoffice_ec2,N,N,Open Climate Fix project to subset Met Office data on AWS EC2,,https://github.com/openclimatefix/metoffice_ec2,,,,https://share.evernote.com/note/a4894487-bb89-41a5-b557-bc9d0c2328a7,,,Y,Y
-most-beautiful-formula,Y,Y,Animating Euler's equation,https://tomwhite.github.io/most-beautiful-formula/,https://github.com/tomwhite/most-beautiful-formula,,visualization,2018-06-01,,,Martin Gardner,Y,Y
+most-beautiful-formula,Y,Y,Animating Euler's equation,https://tomwhite.github.io/most-beautiful-formula/,https://github.com/tomwhite/most-beautiful-formula,,"gardner,visualization",2018-06-01,,,Martin Gardner,Y,Y
 nd3,Y,N,Predecessor to op-art,,,,arrays,,https://share.evernote.com/note/a4a0d576-33ee-4af6-baa4-a3769349b6bf,op-art,,Y,N
 novice,Y,N,The computer matches the human's skill level as they learn a new board game,,https://github.com/tomwhite/novice,,games,,https://share.evernote.com/note/cc95c390-9b7a-f81e-8f4b-c5116c13b318,,,Y,Y
 ns-api-uploader,N,N,Python script for uploading to nightscout api,,https://github.com/cjo20/ns-api-uploader,,t1d,,,libre-nightscout-uploader,,Y,Y
 ocf-experiments,Y,N,Open Climate Fix experiments,,,,,,https://share.evernote.com/note/a4894487-bb89-41a5-b557-bc9d0c2328a7,,,N,N
 old-projects,Y,N,A collection of old computer projects,,,,,,,,,Y,N
 onair,Y,N,Experiments to detect and show if I was on a Skype call,,,,maker,,https://share.evernote.com/note/420535ef-8373-45a7-9d49-8bdad7eb62c2,,,Y,N
-op-art,Y,N,Animated array operations,https://tom-e-white.com/op-art/,https://github.com/tomwhite/op-art,,"arrays,visualization",,https://share.evernote.com/note/a4a0d576-33ee-4af6-baa4-a3769349b6bf,,,Y,Y
+op-art,Y,Y,Animated array operations,https://tom-e-white.com/op-art/,https://github.com/tomwhite/op-art,,"arrays,visualization",2021-04-22,https://share.evernote.com/note/a4a0d576-33ee-4af6-baa4-a3769349b6bf,,,Y,Y
 op-art-dask,Y,N,Animated array operations for Dask,,,,"arrays,visualization",,,op-art,,Y,N
 outguessing,Y,Y,An Arduino recreation of Shannon's Mind Reading Machine,https://github.com/tomwhite/outguessing,https://github.com/tomwhite/outguessing,,"games,maker",2016-01-01,,,,Y,Y
 outguessing-java,Y,N,A Java version of Shannon's Mind Reading Machine,,,,retro-computing,,https://share.evernote.com/note/55ebee34-d394-418a-85c0-01b81ebd16f3,outguessing,,Y,N
@@ -155,9 +155,9 @@ shrdlu-old,Y,N,Old project to emulate MACLisp in Common Lisp to run Winograd's S
 shrdlu-src,Y,N,Source code from various SHRDLU projects,,,,,,https://share.evernote.com/note/85b89264-7d63-44ec-9fc6-7fb1dbe84cb8,shrdlu-old,,Y,N
 six-insect-game,Y,N,An OpenSpiel implementation of an obscure board game.,,,,games,,https://share.evernote.com/note/ef197700-e786-c7e5-ddb5-029364f02a27,six-insect-game-ludii,,Y,N
 six-insect-game-ludii,Y,N,Playing around with Ludii and OpenSpiel integration,,,,games,,https://share.evernote.com/note/ef197700-e786-c7e5-ddb5-029364f02a27,six-insect-game,,N,N
-spirals,Y,N,Drawing spirals,,,,"visualization,maths",,https://share.evernote.com/note/a8f5635d-3cff-4e70-b1d5-41fe219be4c7,,,Y,N
+spirals,Y,N,Drawing spirals,,,,"visualization,maths,nature",,https://share.evernote.com/note/a8f5635d-3cff-4e70-b1d5-41fe219be4c7,,,Y,N
 stats-wales-dataframe,Y,N,Download StatsWales data in CSV format for processing in R and Python,,https://github.com/tomwhite/stats-wales-dataframe,,local-community,,,,,Y,Y
-superellipse,Y,Y,A program to generate Piet Hein's superellipses.,https://observablehq.com/@tomwhite/superellipse-generator,https://github.com/tomwhite/superellipse,,visualization,2002-03-01,,,Martin Gardner,Y,Y
+superellipse,Y,Y,A program to generate Piet Hein's superellipses.,https://observablehq.com/@tomwhite/superellipse-generator,https://github.com/tomwhite/superellipse,,"gardner,visualization",2002-03-01,,,Martin Gardner,Y,Y
 superfarmer,Y,N,Python implementation of the Super Farmer board game,,,,games,,https://share.evernote.com/note/581a24e1-5fac-4802-8064-17d8f87ac21e,,,Y,N
 t1d-genetic-risk-score,Y,N,Code for calculating an individual's T1D genetic risk score from their 23andMe data,,https://github.com/tomwhite/t1d-genetic-risk-score,,t1d,,,,,Y,Y
 tennis-ball-parabola,Y,Y,Plotting a parabola by filming a tennis ball throw.,http://www.tom-e-white.com/2015/03/tennis-ball-parabola.html,https://github.com/tomwhite/tennis-ball-parabola,,visualization,2015-03-01,,,,Y,Y
@@ -169,8 +169,8 @@ tomwhite-website,Y,N,Old website (replaced by tomwhite.github.com),,,,,,,,,N,N
 tomwhite-website-new,Y,N,Local push target for my website (tomwhite.github.com),,,,,,,,,Y,N
 tomwhite.github.com,Y,N,My website (tom-e-white.com),https://tom-e-white.com/,https://github.com/tomwhite/tomwhite.github.com,,,,https://share.evernote.com/note/3b89cc18-98a1-4597-99cc-7b7c77dfd870,,,Y,Y
 topple,Y,N,Unsuccessful experiment to create a balancing game using blocks (based on Nature's blox),,,,games,,https://share.evernote.com/note/6360a89b-73bc-fef6-b969-8eb966ff21eb,,,Y,N
-tournesol,Y,N,Phyllotaxis in Java,,https://github.com/tomwhite/tournesol,,"visualization,maths",,,,,Y,Y
-tournesol-js,Y,N,Phyllotaxis in JavaScript,,,,"visualization,maths",,,,,Y,N
+tournesol,Y,N,Phyllotaxis in Java,,https://github.com/tomwhite/tournesol,,"visualization,maths,nature",,,,,Y,Y
+tournesol-js,Y,N,Phyllotaxis in JavaScript,,,,"visualization,maths,nature",,,,,Y,N
 tree-preservation-orders,Y,N,Unfinished code to analyse Welsh tree preservation orders dataset,,,,local-community,,,,,N,N
 vegbox,Y,N,Scrape Riverford website to find what's in this week's vegbox,,,,home,,,,,N,N
 vstack-and-rechunk,Y,N,Experiments to fix https://github.com/dask/dask/issues/5105,,,,arrays,,,,,Y,N

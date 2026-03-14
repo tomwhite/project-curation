@@ -27,6 +27,7 @@ array-api-tests-op-art,2022-02-24,1
 array-tracker,2023-02-23,1
 array-tracker,2026-02-27,2
 array-tracker,2026-02-28,7
+array-tracker,2026-03-07,1
 array-tracker-array-api-tests,2022-02-24,1
 articles,2011-11-25,1
 articles,2025-09-15,3
@@ -377,7 +378,6 @@ dask-executor-scheduler,2020-06-24,1
 dask-executor-scheduler,2020-06-25,1
 dask-executor-scheduler,2020-07-12,1
 dask-executor-scheduler,2020-08-07,3
-datashader,2020-02-11,2
 datashader-leaflet,2020-01-28,2
 datashader-leaflet,2020-01-29,4
 datashader-leaflet,2020-01-30,2
@@ -800,6 +800,7 @@ isitdayornight,2019-11-05,1
 isitdayornight,2019-11-16,1
 jamie-oliver-recipes,2019-02-04,1
 knitting-squares,2025-05-26,1
+knitting-squares,2026-03-07,1
 l-game,2015-08-23,1
 l-game,2015-08-29,9
 l-game,2015-08-30,12
@@ -1049,6 +1050,8 @@ op-art,2023-02-23,1
 op-art,2023-02-24,4
 op-art,2026-02-27,3
 op-art,2026-02-28,4
+op-art,2026-03-06,1
+op-art,2026-03-07,1
 op-art-dask,2021-06-16,22
 op-art-dask,2021-06-18,2
 op-art-dask,2021-06-27,6
@@ -1235,6 +1238,8 @@ polarize,2026-02-27,1
 polarize,2026-02-28,1
 polarize,2026-03-02,2
 polarize,2026-03-05,1
+polarize,2026-03-10,1
+polarize,2026-03-12,1
 pong,2023-01-25,1
 pong,2023-01-26,6
 pong,2023-01-27,1
@@ -1260,6 +1265,9 @@ project-curation,2025-08-16,1
 project-curation,2025-08-18,3
 project-curation,2025-08-22,1
 project-curation,2025-10-05,1
+project-curation,2026-03-06,6
+project-curation,2026-03-07,2
+project-curation,2026-03-14,12
 projecteuler,2013-02-13,2
 projecteuler,2013-02-14,2
 projecteuler,2013-02-18,1
@@ -1557,6 +1565,7 @@ reflect,2026-02-12,1
 reflect,2026-02-19,1
 reflect,2026-02-26,1
 reflect,2026-03-05,1
+reflect,2026-03-12,1
 riemann-staircase,2021-12-28,2
 riemann-staircase,2023-01-25,1
 running-data,2015-10-25,1
@@ -1708,6 +1717,8 @@ tomwhite.github.com,2025-09-15,4
 tomwhite.github.com,2025-09-18,1
 tomwhite.github.com,2026-01-03,2
 tomwhite.github.com,2026-02-01,1
+tomwhite.github.com,2026-03-06,3
+tomwhite.github.com,2026-03-07,1
 topple,2023-12-28,3
 topple,2023-12-29,4
 topple,2024-01-01,1

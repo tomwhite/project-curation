@@ -10,7 +10,11 @@
 </head>
 <body class="container mt-4">
     <h2 class="mb-4">Projects Database</h2>
-    <div id="published-filter" class="mb-3"></div>
+    <div class="d-flex gap-3 mb-3">
+        <div id="published-filter"></div>
+        <div id="local-git-filter"></div>
+        <div id="github-filter"></div>
+    </div>
     <div id="topic-buttons" class="mb-3"></div>
     <table class="table table-striped">
         <thead>
@@ -32,6 +36,8 @@
             const topicButtons = d3.select("#topic-buttons");
             let activeTopic = null;
             let activePublished = "all"; // "all" | "Y" | "N"
+            let activeLocalGit = "all";
+            let activeGithub = "all";
             let sortCol = null;
             let sortAsc = true;
 
@@ -53,6 +59,26 @@
                     d3.select(this).classed("btn-outline-primary", false).classed("btn-primary", true);
                     updateTable();
                 });
+
+            function makeYNGroup(selector, activeVar, label, onChange) {
+                const group = d3.select(selector).append("div").attr("class", "btn-group");
+                group.selectAll("button")
+                    .data([{label: "All", value: "all"}, {label: label, value: "Y"}, {label: "Not " + label.toLowerCase(), value: "N"}])
+                    .enter()
+                    .append("button")
+                    .attr("class", d => d.value === "all" ? "btn btn-primary" : "btn btn-outline-primary")
+                    .text(d => d.label)
+                    .on("click", function(event, d) {
+                        onChange(d.value);
+                        group.selectAll("button").classed("btn-primary", false).classed("btn-outline-primary", true);
+                        d3.select(this).classed("btn-outline-primary", false).classed("btn-primary", true);
+                        updateTable();
+                    });
+                return group;
+            }
+
+            makeYNGroup("#local-git-filter", activeLocalGit, "Local git", v => activeLocalGit = v);
+            makeYNGroup("#github-filter", activeGithub, "Github", v => activeGithub = v);
 
             // Extract unique topics from comma-separated lists, sort them alphabetically
             const topics = Array.from(new Set(data.flatMap(d => d.topics ? d.topics.split(",").map(t => t.trim()) : []))).sort();
@@ -106,6 +132,8 @@
                 tableBody.html(""); // Clear existing table rows
                 let filteredData = data;
                 if (activePublished !== "all") filteredData = filteredData.filter(d => d.published === activePublished);
+                if (activeLocalGit !== "all") filteredData = filteredData.filter(d => d.local_git === activeLocalGit);
+                if (activeGithub !== "all") filteredData = filteredData.filter(d => d.github === activeGithub);
                 if (activeTopic) filteredData = filteredData.filter(d => d.topics && d.topics.split(",").map(t => t.trim()).includes(activeTopic));
                 if (sortCol) filteredData = filteredData.slice().sort((a, b) => sortAsc ? d3.ascending(a[sortCol], b[sortCol]) : d3.descending(a[sortCol], b[sortCol]));
                 tableBody.selectAll("tr")

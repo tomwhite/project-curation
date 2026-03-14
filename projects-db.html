@@ -24,7 +24,7 @@
             // Filter out rows where my_project is not 'Y'
             data = data.filter(d => d.my_project === "Y");
             
-            const columns = ["name", "description", "date", "links", "topics", "published", "local_git", "github"];
+            const columns = ["logo", "name", "description", "date", "links", "topics", "published", "local_git", "github"];
             const tableHead = d3.select("#table-head");
             const tableBody = d3.select("#table-body");
             const topicButtons = d3.select("#topic-buttons");
@@ -60,6 +60,7 @@
                 .text(d => d)
                 .attr("class", "sortable")
                 .on("click", function(event, d) {
+                    if (d === "logo") return;
                     const ascending = this.getAttribute("data-asc") === "true";
                     this.setAttribute("data-asc", !ascending);
                     data.sort((a, b) => ascending ? d3.ascending(a[d], b[d]) : d3.descending(a[d], b[d]));
@@ -76,6 +77,9 @@
                     .each(function(d) {
                         d3.select(this).selectAll("td")
                             .data([
+                                d.published === "Y"
+                                    ? `<div style="width:40px;height:40px;overflow:hidden"><img src="${d.logo_url || `https://raw.githubusercontent.com/tomwhite/${d.name}/master/logo.png`}" style="width:40px;height:40px;object-fit:cover" onerror="this.parentElement.style.display='none'"></div>`
+                                    : "",
                                 d.homepage ? `<a href="${d.homepage}">${d.name}</a>` : d.name,
                                 d.description,
                                 d.date,

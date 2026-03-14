@@ -51,7 +51,8 @@
             return [h1>>>0, h2>>>0, h3>>>0, h4>>>0];
         }
 
-        d3.csv("data/projects-db-final.csv").then(function(data) {
+        d3.csv("data/projects-db.csv").then(function(rawData) {
+            const data = rawData;
             if (data.length === 0) return;
             const data_mixed = data.map(d => ({...d, id: cyrb128(d.name)[0]}));
             data_mixed.sort((a, b) => a.id - b.id);
@@ -60,22 +61,44 @@
 
             const logo_url = d.logo_url ? d.logo_url : `https://raw.githubusercontent.com/tomwhite/${d.name}/master/logo.png`;
 
-            document.getElementById("project").innerHTML = `
-              <div class="row">
-                <div class="col-sm-3">
-                  <div class="card h-100">
-                    <div class="embed-responsive embed-responsive-1by1">
-                      <a href="${d.homepage}"><img class="card-img-top embed-responsive-item" src="${logo_url}" alt="${d.name} logo" onerror="this.closest('.embed-responsive').style.display='none'"></a>
-                    </div>
-                    <div class="card-body">
-                      <a href="${d.homepage}"><h5 class="card-title">${d.name}</h5></a>
-                      <p class="card-text">${d.description}</p>
-                      <a href="${d.homepage}" class="card-link">More...</a>
-                      <a href="${d.html_url}" class="card-link">Code</a>
-                    </div>
-                  </div>
-                </div>
-              </div>`;
+            // Build DOM safely to avoid XSS via CSV fields
+            const row = document.createElement("div");
+            row.className = "row";
+            const col = row.appendChild(document.createElement("div"));
+            col.className = "col-sm-3";
+            const card = col.appendChild(document.createElement("div"));
+            card.className = "card h-100";
+
+            const embed = card.appendChild(document.createElement("div"));
+            embed.className = "embed-responsive embed-responsive-1by1";
+            const imgLink = embed.appendChild(document.createElement("a"));
+            imgLink.href = d.homepage;
+            const img = imgLink.appendChild(document.createElement("img"));
+            img.className = "card-img-top embed-responsive-item";
+            img.src = logo_url;
+            img.alt = d.name + " logo";
+            img.onerror = function() { this.closest(".embed-responsive").style.display = "none"; };
+
+            const body = card.appendChild(document.createElement("div"));
+            body.className = "card-body";
+            const titleLink = body.appendChild(document.createElement("a"));
+            titleLink.href = d.homepage;
+            const h5 = titleLink.appendChild(document.createElement("h5"));
+            h5.className = "card-title";
+            h5.textContent = d.name;
+            const desc = body.appendChild(document.createElement("p"));
+            desc.className = "card-text";
+            desc.textContent = d.description;
+            const moreLink = body.appendChild(document.createElement("a"));
+            moreLink.href = d.homepage;
+            moreLink.className = "card-link";
+            moreLink.textContent = "More...";
+            const codeLink = body.appendChild(document.createElement("a"));
+            codeLink.href = d.html_url;
+            codeLink.className = "card-link";
+            codeLink.textContent = "Code";
+
+            document.getElementById("project").appendChild(row);
         }).catch(error => console.error("Error loading CSV:", error));
     </script>
 </body>

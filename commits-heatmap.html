@@ -10,11 +10,10 @@
         padding: 1px 4px;
         font-size: 11px;
         white-space: nowrap;
-        line-height: 14px;
       }
       #project-list div.highlighted { background: orange; }
-      rect { opacity: 0.7; }
-      rect.highlighted { opacity: 1 !important; outline: 2px solid orange; }
+      rect.cell { opacity: 0.7; }
+      rect.cell.highlighted { opacity: 1 !important; stroke: orange; stroke-width: 2px; }
       .year-label {
         font-size: 11px;
         fill: #555;
@@ -39,11 +38,10 @@
         d3.csv("data/projects-db.csv"),
       ]).then(function([commitData, projectData]) {
 
-        // 1. Filter to published projects, sort alphabetically
+        // 1. Filter to published projects
         const publishedProjects = new Set(
           projectData.filter(d => d.published === "Y").map(d => d.name)
         );
-        const projectsSorted = [...publishedProjects].sort();
 
         // 2. Parse dates, compute year and week-of-year
         commitData.forEach(d => {
@@ -68,12 +66,18 @@
           projectCellMap.get(d.project).add(`${d.year}|${d.week}`);
         });
 
+        // 5. Sorted list of published projects that have at least one commit
+        const projectsSorted = [...publishedProjects]
+          .filter(p => projectCellMap.has(p))
+          .sort();
+
         const cellData = [...cellMap.entries()].map(([key, projects]) => {
           const [year, week] = key.split("|").map(Number);
           return { key, year, week, projects, count: projects.size };
         });
 
         const years = [...new Set(cellData.map(d => d.year))].sort();
+        const yearIndex = new Map(years.map((y, i) => [y, i]));
         const maxCount = d3.max(cellData, d => d.count);
 
         // Layout
@@ -120,13 +124,45 @@
           .join("rect")
           .attr("class", "cell")
           .attr("x", d => marginLeft + d.week * step)
-          .attr("y", d => marginTop + years.indexOf(d.year) * step)
+          .attr("y", d => marginTop + yearIndex.get(d.year) * step)
           .attr("width", cellSize)
           .attr("height", cellSize)
           .attr("rx", 2)
           .attr("fill", d => colorScale(d.count))
           .append("title")
           .text(d => `${d.year} W${d.week + 1}: ${d.count} project${d.count !== 1 ? "s" : ""}\n${[...d.projects].sort().join(", ")}`);
+
+        // Colour legend
+        const legendColors = d3.schemeBlues[6];
+        const legendW = cellSize, legendH = cellSize, legendGap = 2;
+        const legendSvg = d3.select("#heatmap")
+          .append("svg")
+          .attr("width", svgW)
+          .attr("height", legendH + 20)
+          .style("margin-top", "8px");
+        legendColors.forEach((color, i) => {
+          legendSvg.append("rect")
+            .attr("class", "cell")
+            .attr("x", marginLeft + i * (legendW + legendGap))
+            .attr("y", 0)
+            .attr("width", legendW)
+            .attr("height", legendH)
+            .attr("rx", 2)
+            .attr("fill", color);
+        });
+        legendSvg.append("text")
+          .attr("x", marginLeft)
+          .attr("y", legendH + 13)
+          .attr("font-size", 10)
+          .attr("fill", "#555")
+          .text("fewer");
+        legendSvg.append("text")
+          .attr("x", marginLeft + legendColors.length * (legendW + legendGap))
+          .attr("y", legendH + 13)
+          .attr("font-size", 10)
+          .attr("fill", "#555")
+          .attr("text-anchor", "end")
+          .text("more");
 
         // Re-select rect elements (not title) for event binding
         const cellRects = svg.selectAll("rect.cell");

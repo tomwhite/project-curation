@@ -6,6 +6,7 @@
     <style>
       svg a text { fill: steelblue; }
       svg a:hover text { fill: darkblue; }
+
     </style>
     <script type="module">
       import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
@@ -92,9 +93,13 @@
               fill: "blue",
               fillOpacity: 0.5,
               r: 4,
-              title: d => `Project: ${d.project}\nWeek: ${d.week.toISOString().split("T")[0]}\nCommits: ${d.num_commits}`
             }),
-            Plot.ruleX(yearStarts, { stroke: "black", strokeWidth: 1, strokeOpacity: 0.5 })
+            Plot.ruleX(yearStarts, { stroke: "black", strokeWidth: 1, strokeOpacity: 0.5 }),
+            Plot.tip(fullData, Plot.pointer({
+              x: "week",
+              y: "project",
+              title: d => `${d.project}\n${d.week.toISOString().split("T")[0]}\nCommits: ${d.num_commits}`
+            }))
           ],
           x: {
             type: "utc",

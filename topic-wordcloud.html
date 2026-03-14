@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Topics – Word Cloud</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-cloud@1/build/d3.layout.cloud.js"></script>
+  <style>
+    body { font-family: sans-serif; }
+    #wordcloud { display: flex; justify-content: center; }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center">Project Topics</h1>
+  <div id="wordcloud"></div>
+
+  <script>
+    d3.csv("data/projects-db.csv").then(function(data) {
+      const counts = {};
+      data.forEach(d => {
+        if (!d.topics) return;
+        d.topics.split(",").forEach(t => {
+          const topic = t.trim();
+          counts[topic] = (counts[topic] || 0) + 1;
+        });
+      });
+
+      const words = Object.entries(counts).map(([text, count]) => ({ text, count }));
+
+      const maxCount = d3.max(words, d => d.count);
+      const fontSize = d3.scaleLinear().domain([1, maxCount]).range([14, 72]);
+      const color = d3.scaleOrdinal(d3.schemeTableau10);
+
+      const width = 900, height = 500;
+
+      d3.layout.cloud()
+        .size([width, height])
+        .words(words)
+        .padding(5)
+        .rotate(0)
+        .font("sans-serif")
+        .fontSize(d => fontSize(d.count))
+        .on("end", draw)
+        .start();
+
+      function draw(words) {
+        d3.select("#wordcloud")
+          .append("svg")
+          .attr("width", width)
+          .attr("height", height)
+          .append("g")
+          .attr("transform", `translate(${width / 2},${height / 2})`)
+          .selectAll("text")
+          .data(words)
+          .enter()
+          .append("text")
+          .style("font-size", d => `${d.size}px`)
+          .style("font-family", "sans-serif")
+          .style("fill", d => color(d.text))
+          .attr("text-anchor", "middle")
+          .attr("transform", d => `translate(${d.x},${d.y}) rotate(${d.rotate})`)
+          .text(d => d.text)
+          .append("title")
+          .text(d => `${d.text}: ${d.count}`);
+      }
+    }).catch(error => console.error("Error loading CSV:", error));
+  </script>
+</body>
+</html>

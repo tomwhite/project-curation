@@ -9,6 +9,7 @@
 </head>
 <body class="container mt-4">
     <h2 class="mb-4">Projects Database</h2>
+    <div id="published-filter" class="mb-3"></div>
     <div id="topic-buttons" class="mb-3"></div>
     <table class="table table-striped">
         <thead>
@@ -29,7 +30,27 @@
             const tableBody = d3.select("#table-body");
             const topicButtons = d3.select("#topic-buttons");
             let activeTopic = null;
-            
+            let activePublished = "all"; // "all" | "Y" | "N"
+
+            // Render published filter btn-group
+            const publishedGroup = d3.select("#published-filter")
+                .append("div").attr("class", "btn-group");
+
+            publishedGroup.selectAll("button")
+                .data([{label: "All", value: "all"}, {label: "Published", value: "Y"}, {label: "Not published", value: "N"}])
+                .enter()
+                .append("button")
+                .attr("class", d => d.value === "all" ? "btn btn-primary" : "btn btn-outline-primary")
+                .text(d => d.label)
+                .on("click", function(event, d) {
+                    activePublished = d.value;
+                    publishedGroup.selectAll("button")
+                        .classed("btn-primary", false)
+                        .classed("btn-outline-primary", true);
+                    d3.select(this).classed("btn-outline-primary", false).classed("btn-primary", true);
+                    updateTable();
+                });
+
             // Extract unique topics from comma-separated lists, sort them alphabetically
             const topics = Array.from(new Set(data.flatMap(d => d.topics ? d.topics.split(",").map(t => t.trim()) : []))).sort();
             
@@ -43,10 +64,10 @@
                 .on("click", function(event, topic) {
                     if (activeTopic === topic) {
                         activeTopic = null;
-                        d3.selectAll(".btn").classed("btn-primary", false).classed("btn-outline-primary", true);
+                        topicButtons.selectAll("button").classed("btn-primary", false).classed("btn-outline-primary", true);
                     } else {
                         activeTopic = topic;
-                        d3.selectAll(".btn").classed("btn-primary", false).classed("btn-outline-primary", true);
+                        topicButtons.selectAll("button").classed("btn-primary", false).classed("btn-outline-primary", true);
                         d3.select(this).classed("btn-outline-primary", false).classed("btn-primary", true);
                     }
                     updateTable();
@@ -69,7 +90,9 @@
             
             function updateTable() {
                 tableBody.html(""); // Clear existing table rows
-                const filteredData = activeTopic ? data.filter(d => d.topics && d.topics.split(",").map(t => t.trim()).includes(activeTopic)) : data;
+                let filteredData = data;
+                if (activePublished !== "all") filteredData = filteredData.filter(d => d.published === activePublished);
+                if (activeTopic) filteredData = filteredData.filter(d => d.topics && d.topics.split(",").map(t => t.trim()).includes(activeTopic));
                 tableBody.selectAll("tr")
                     .data(filteredData)
                     .enter()

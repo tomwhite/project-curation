@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <title>Commits Dot Plot</title>
+    <style>
+      svg a text { fill: steelblue; }
+      svg a:hover text { fill: darkblue; }
+    </style>
     <script type="module">
       import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
       import { csv } from "https://cdn.jsdelivr.net/npm/d3-fetch@3/+esm";
@@ -10,7 +14,13 @@
       import { min, max, range } from "https://cdn.jsdelivr.net/npm/d3-array@3/+esm";
       import { timeYear, timeWeek } from "https://cdn.jsdelivr.net/npm/d3-time@3/+esm";
 
-      csv("data/git-commits.csv", autoType).then(data => {
+      Promise.all([
+          csv("data/git-commits.csv", autoType),
+          csv("data/projects-db.csv"),
+      ]).then(function([data, projectData]) {
+        const homepageMap = Object.fromEntries(
+          projectData.filter(d => d.homepage).map(d => [d.name, d.homepage])
+        );
         data.forEach(d => {
           d.date = new Date(d.date);
           d.week = timeWeek.floor(d.date);
@@ -89,6 +99,19 @@
         });
 
         document.body.appendChild(chart);
+
+        // Make y-axis project labels into clickable links
+        chart.querySelectorAll("text").forEach(text => {
+          const name = text.textContent.trim();
+          const url = homepageMap[name];
+          if (url) {
+            const a = document.createElementNS("http://www.w3.org/2000/svg", "a");
+            a.setAttribute("href", url);
+
+            text.parentNode.insertBefore(a, text);
+            a.appendChild(text);
+          }
+        });
       });
     </script>
   </head>

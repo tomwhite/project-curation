@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <title>Commits Dot Plot</title>
+    <style>
+      svg a text { fill: steelblue; }
+      svg a:hover text { fill: darkblue; }
+    </style>
     <script type="module">
       import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
       import { csv } from "https://cdn.jsdelivr.net/npm/d3-fetch@3/+esm";
@@ -21,6 +25,10 @@
         const publishedProjects = projectData.filter((d) =>
           d.published === "Y"
         ).map((d) => d.name);
+
+        const homepageMap = Object.fromEntries(
+          projectData.filter(d => d.homepage).map(d => [d.name, d.homepage])
+        );
 
         const data = commitData.filter((d) => publishedProjects.includes(d.project));
         data.forEach(d => {
@@ -104,6 +112,19 @@
         });
 
         document.body.appendChild(chart);
+
+        // Make y-axis project labels into clickable links
+        chart.querySelectorAll("text").forEach(text => {
+          const name = text.textContent.trim();
+          const url = homepageMap[name];
+          if (url) {
+            const a = document.createElementNS("http://www.w3.org/2000/svg", "a");
+            a.setAttribute("href", url);
+
+            text.parentNode.insertBefore(a, text);
+            a.appendChild(text);
+          }
+        });
       });
     </script>
   </head>

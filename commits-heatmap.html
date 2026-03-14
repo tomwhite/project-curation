@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Commits Heatmap</title>
+    <style>
+      body { font-family: sans-serif; margin: 16px; }
+      #project-list div {
+        cursor: default;
+        padding: 1px 4px;
+        font-size: 11px;
+        white-space: nowrap;
+        line-height: 14px;
+      }
+      #project-list div.highlighted { background: orange; }
+      rect { opacity: 0.7; }
+      rect.highlighted { opacity: 1 !important; outline: 2px solid orange; }
+      .year-label {
+        font-size: 11px;
+        fill: #555;
+      }
+      .week-label {
+        font-size: 10px;
+        fill: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Commits Heatmap</h1>
+    <p>Each cell represents one week. Colour intensity = number of published projects with commits that week. Hover a cell to highlight active projects; hover a project to highlight its active weeks.</p>
+    <div style="display:flex; gap:24px; align-items:flex-start; margin-top:16px">
+      <div id="project-list"></div>
+      <div id="heatmap"></div>
+    </div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+      Promise.all([
+        d3.csv("data/git-commits.csv"),
+        d3.csv("data/projects-db.csv"),
+      ]).then(function([commitData, projectData]) {
+
+        // 1. Filter to published projects, sort alphabetically
+        const publishedProjects = new Set(
+          projectData.filter(d => d.published === "Y").map(d => d.name)
+        );
+        const projectsSorted = [...publishedProjects].sort();
+
+        // 2. Parse dates, compute year and week-of-year
+        commitData.forEach(d => {
+          d.date = new Date(d.date);
+          d.year = d.date.getFullYear();
+          d.week = d3.timeWeek.count(d3.timeYear(d.date), d.date);
+        });
+        const data = commitData.filter(d => publishedProjects.has(d.project));
+
+        // 3. For each (year, week) cell: set of active projects
+        const cellMap = new Map();
+        data.forEach(d => {
+          const key = `${d.year}|${d.week}`;
+          if (!cellMap.has(key)) cellMap.set(key, new Set());
+          cellMap.get(key).add(d.project);
+        });
+
+        // 4. For each project: set of cell keys where it was active
+        const projectCellMap = new Map();
+        data.forEach(d => {
+          if (!projectCellMap.has(d.project)) projectCellMap.set(d.project, new Set());
+          projectCellMap.get(d.project).add(`${d.year}|${d.week}`);
+        });
+
+        const cellData = [...cellMap.entries()].map(([key, projects]) => {
+          const [year, week] = key.split("|").map(Number);
+          return { key, year, week, projects, count: projects.size };
+        });
+
+        const years = [...new Set(cellData.map(d => d.year))].sort();
+        const maxCount = d3.max(cellData, d => d.count);
+
+        // Layout
+        const cellSize = 12, gap = 2;
+        const step = cellSize + gap;
+        const marginLeft = 36, marginTop = 32;
+
+        const svgW = 53 * step + marginLeft + 8;
+        const svgH = years.length * step + marginTop + 8;
+
+        const colorScale = d3.scaleQuantize()
+          .domain([1, maxCount])
+          .range(d3.schemeBlues[6]);
+
+        const svg = d3.select("#heatmap")
+          .append("svg")
+          .attr("width", svgW)
+          .attr("height", svgH);
+
+        // Year labels (Y axis)
+        svg.selectAll(".year-label")
+          .data(years)
+          .join("text")
+          .attr("class", "year-label")
+          .attr("x", marginLeft - 4)
+          .attr("y", (year, i) => marginTop + i * step + cellSize / 2 + 4)
+          .attr("text-anchor", "end")
+          .text(d => d);
+
+        // Week labels every 4 weeks (X axis)
+        const weekTicks = d3.range(0, 53, 4);
+        svg.selectAll(".week-label")
+          .data(weekTicks)
+          .join("text")
+          .attr("class", "week-label")
+          .attr("x", w => marginLeft + w * step)
+          .attr("y", marginTop - 6)
+          .attr("text-anchor", "middle")
+          .text(d => `W${d + 1}`);
+
+        // Cells
+        const cells = svg.selectAll("rect.cell")
+          .data(cellData)
+          .join("rect")
+          .attr("class", "cell")
+          .attr("x", d => marginLeft + d.week * step)
+          .attr("y", d => marginTop + years.indexOf(d.year) * step)
+          .attr("width", cellSize)
+          .attr("height", cellSize)
+          .attr("rx", 2)
+          .attr("fill", d => colorScale(d.count))
+          .append("title")
+          .text(d => `${d.year} W${d.week + 1}: ${d.count} project${d.count !== 1 ? "s" : ""}\n${[...d.projects].sort().join(", ")}`);
+
+        // Re-select rect elements (not title) for event binding
+        const cellRects = svg.selectAll("rect.cell");
+
+        // Project list
+        const listContainer = d3.select("#project-list");
+        const listItems = listContainer.selectAll("div")
+          .data(projectsSorted)
+          .join("div")
+          .attr("data-project", d => d)
+          .style("line-height", `${step}px`)
+          .text(d => d);
+
+        // Hover: cell → highlight projects
+        cellRects
+          .on("mouseover", function(event, d) {
+            listItems.classed("highlighted", p => d.projects.has(p));
+          })
+          .on("mouseout", function() {
+            listItems.classed("highlighted", false);
+          });
+
+        // Hover: project → highlight cells
+        listItems
+          .on("mouseover", function(event, project) {
+            const keys = projectCellMap.get(project) || new Set();
+            cellRects.classed("highlighted", d => keys.has(d.key));
+          })
+          .on("mouseout", function() {
+            cellRects.classed("highlighted", false);
+          });
+      });
+    </script>
+  </body>
+</html>

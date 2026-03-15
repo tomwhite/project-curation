@@ -144,7 +144,7 @@
                         d3.select(this).selectAll("td")
                             .data([
                                 d.published === "Y"
-                                    ? `<div style="width:40px;height:40px;overflow:hidden"><img src="${d.logo_url || `https://raw.githubusercontent.com/tomwhite/${d.name}/master/logo.png`}" style="width:40px;height:40px;object-fit:cover" onerror="this.parentElement.style.display='none'"></div>`
+                                    ? `<div style="width:40px;height:40px;overflow:hidden"><img src="${d.logo_url || `https://raw.githubusercontent.com/tomwhite/${d.name}/master/logo.png`}" style="width:40px;height:40px;object-fit:cover;object-position:left" onerror="this.parentElement.style.display='none'"></div>`
                                     : "",
                                 d.homepage ? `<a href="${d.homepage}">${d.name}</a>` : d.name,
                                 d.description,

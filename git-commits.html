@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <title>Commits Dot Plot</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
     <style>
       svg a text { fill: steelblue; }
       svg a:hover text { fill: darkblue; }
-
     </style>
     <script type="module">
       import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
@@ -18,112 +20,141 @@
       Promise.all([
           csv("data/git-commits.csv", autoType),
           csv("data/projects-db.csv"),
-      ]).then(function([data, projectData]) {
+      ]).then(function([commitData, projectData]) {
         const homepageMap = Object.fromEntries(
           projectData.filter(d => d.homepage).map(d => [d.name, d.homepage])
         );
-        data.forEach(d => {
+        const publishedSet = new Set(projectData.filter(d => d.published === "Y").map(d => d.name));
+
+        commitData.forEach(d => {
           d.date = new Date(d.date);
           d.week = timeWeek.floor(d.date);
         });
 
-        const minWeek = timeWeek.floor(min(data, d => d.date));
-        const maxWeek = timeWeek.floor(max(data, d => d.date));
+        const minWeek = timeWeek.floor(min(commitData, d => d.date));
+        const maxWeek = timeWeek.floor(max(commitData, d => d.date));
         const allWeeks = [];
         let currentWeek = new Date(minWeek);
-
         while (currentWeek <= maxWeek) {
           allWeeks.push(new Date(currentWeek));
           currentWeek.setDate(currentWeek.getDate() + 7);
         }
 
         const commitsByWeek = new Map();
-        data.forEach(d => {
+        commitData.forEach(d => {
           const key = `${d.project}|${d.week.toISOString()}`;
           commitsByWeek.set(key, (commitsByWeek.get(key) || 0) + d.num_commits);
         });
 
         const fullData = [];
-        for (const project of new Set(data.map(d => d.project))) {
+        for (const project of new Set(commitData.map(d => d.project))) {
           for (const week of allWeeks) {
             const key = `${project}|${week.toISOString()}`;
             if (commitsByWeek.get(key)) {
-              fullData.push({ 
-                project: project, 
-                week: week, 
-                num_commits: commitsByWeek.get(key) // Store commit count
+              fullData.push({
+                project,
+                week,
+                num_commits: commitsByWeek.get(key),
+                published: publishedSet.has(project) ? "Y" : "N",
               });
             }
           }
         }
 
-        const projectFirstCommit = {};
-        data.forEach(d => {
-          if (!projectFirstCommit[d.project] || d.week < projectFirstCommit[d.project]) {
-            projectFirstCommit[d.project] = d.week;
-          }
-        });
-
-        const projectsSorted = Object.keys(projectFirstCommit).sort(
-          (a, b) => projectFirstCommit[b] - projectFirstCommit[a]
-        );
-
         const yearStarts = range(minWeek.getFullYear(), maxWeek.getFullYear() + 1, 1).map(
           year => timeYear.floor(new Date(year, 0, 1))
         );
 
-        const chart = Plot.plot({
-          marks: [
-            Plot.dot(fullData, {
-              x: "week",
-              y: "project",
-              fill: "blue",
-              fillOpacity: 0.5,
-              r: 4,
-            }),
-            Plot.ruleX(yearStarts, { stroke: "black", strokeWidth: 1, strokeOpacity: 0.5 }),
-            Plot.tip(fullData, Plot.pointer({
-              x: "week",
-              y: "project",
-              title: d => `${d.project}\n${d.week.toISOString().split("T")[0]}\nCommits: ${d.num_commits}`
-            }))
-          ],
-          x: {
-            type: "utc",
-            domain: [yearStarts[0], maxWeek],
-            ticks: yearStarts
-          },
-          y: {
-            label: "Project",
-            domain: projectsSorted
-          },
-          marginLeft: 150,
-          marginTop: 50,
-          width: 1000,
-          height: 1500
+        let activeFilter = "Y";
+
+        const buttons = document.querySelectorAll("#filter-buttons button");
+        buttons.forEach(btn => {
+          btn.addEventListener("click", function() {
+            activeFilter = this.dataset.value;
+            buttons.forEach(b => {
+              b.classList.toggle("btn-primary", b === this);
+              b.classList.toggle("btn-outline-primary", b !== this);
+            });
+            render();
+          });
         });
 
-        document.body.appendChild(chart);
+        function render() {
+          const filtered = activeFilter === "all"
+            ? fullData
+            : fullData.filter(d => d.published === activeFilter);
 
-        // Make y-axis project labels into clickable links
-        chart.querySelectorAll('[aria-label="y-axis tick label"] text').forEach(text => {
-          const name = text.textContent.trim();
-          const url = homepageMap[name];
-          if (url) {
-            const a = document.createElementNS("http://www.w3.org/2000/svg", "a");
-            a.setAttribute("href", url);
+          const projectFirstCommit = {};
+          filtered.forEach(d => {
+            if (!projectFirstCommit[d.project] || d.week < projectFirstCommit[d.project]) {
+              projectFirstCommit[d.project] = d.week;
+            }
+          });
 
-            text.parentNode.insertBefore(a, text);
-            a.appendChild(text);
-          }
-        });
+          const projectsSorted = Object.keys(projectFirstCommit).sort(
+            (a, b) => projectFirstCommit[b] - projectFirstCommit[a]
+          );
+
+          const chart = Plot.plot({
+            marks: [
+              Plot.dot(filtered, {
+                x: "week",
+                y: "project",
+                fill: "blue",
+                fillOpacity: 0.5,
+                r: 4,
+              }),
+              Plot.ruleX(yearStarts, { stroke: "black", strokeWidth: 1, strokeOpacity: 0.5 }),
+              Plot.tip(filtered, Plot.pointer({
+                x: "week",
+                y: "project",
+                title: d => `${d.project}\n${d.week.toISOString().split("T")[0]}\nCommits: ${d.num_commits}`
+              }))
+            ],
+            x: {
+              type: "utc",
+              domain: [yearStarts[0], maxWeek],
+              ticks: yearStarts
+            },
+            y: {
+              label: "Project",
+              domain: projectsSorted
+            },
+            marginLeft: 150,
+            marginTop: 50,
+            width: 1000,
+            height: projectsSorted.length * 12 + 60,
+          });
+
+          // Make y-axis project labels into clickable links
+          chart.querySelectorAll('[aria-label="y-axis tick label"] text').forEach(text => {
+            const name = text.textContent.trim();
+            const url = homepageMap[name];
+            if (url) {
+              const a = document.createElementNS("http://www.w3.org/2000/svg", "a");
+              a.setAttribute("href", url);
+              text.parentNode.insertBefore(a, text);
+              a.appendChild(text);
+            }
+          });
+
+          const container = document.getElementById("chart");
+          container.innerHTML = "";
+          container.appendChild(chart);
+        }
+
+        render();
       });
     </script>
   </head>
-  <body>
+  <body class="container mt-4">
     <h1>Commits Dot Plot</h1>
-    <p>
-      Each dot represents a project having commits during that week.
-    </p>
+    <p>Each dot represents a project having commits during that week.</p>
+    <div id="filter-buttons" class="btn-group mb-3">
+      <button class="btn btn-outline-primary" data-value="all">All</button>
+      <button class="btn btn-primary" data-value="Y">Published</button>
+      <button class="btn btn-outline-primary" data-value="N">Not published</button>
+    </div>
+    <div id="chart"></div>
   </body>
 </html>

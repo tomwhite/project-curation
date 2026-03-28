@@ -195,7 +195,10 @@ birdcage,2023-03-02,3
 birdcage,2023-03-03,2
 birdcage,2023-03-05,1
 birdcage,2025-09-05,1
+birdcage,2026-03-15,1
 birthday-roots,2015-10-25,1
+blessed-browser,2026-03-15,5
+blessed-browser,2026-03-28,4
 blockclock,2010-10-24,1
 blockclock,2019-11-16,1
 blockclock-matrix,2024-04-07,7
@@ -207,6 +210,8 @@ bolus-calc,2019-06-23,1
 chernoff,2011-11-25,1
 chernoff,2019-11-26,1
 chinesechequers,2019-01-04,2
+chinesechequers,2026-03-15,8
+chinesechequers,2026-03-28,1
 core,2011-11-25,1
 covid-19,2020-03-15,1
 covid-19,2020-03-16,3
@@ -607,6 +612,7 @@ freeloader,2017-08-20,2
 freeloader,2018-02-11,2
 freeloader,2018-06-03,1
 freeloader,2019-01-05,6
+freeloader,2026-03-28,1
 futoshiki,2016-12-27,1
 futoshiki,2016-12-28,1
 futoshiki,2017-06-04,1
@@ -628,6 +634,7 @@ futoshiki-hints,2021-03-12,1
 futoshiki-hints,2022-03-13,1
 futoshiki-hints,2022-08-28,1
 futoshiki-hints,2023-01-25,1
+futoshiki-hints,2026-03-15,2
 ga,2011-11-25,1
 gaussian-primes,2009-12-28,2
 gaussian-primes,2010-10-24,1
@@ -1240,6 +1247,11 @@ polarize,2026-03-02,2
 polarize,2026-03-05,1
 polarize,2026-03-10,1
 polarize,2026-03-12,1
+polarize,2026-03-15,1
+polarize,2026-03-18,1
+polarize,2026-03-21,1
+polarize,2026-03-24,2
+polarize,2026-03-25,1
 pong,2023-01-25,1
 pong,2023-01-26,6
 pong,2023-01-27,1
@@ -1267,7 +1279,8 @@ project-curation,2025-08-22,1
 project-curation,2025-10-05,1
 project-curation,2026-03-06,6
 project-curation,2026-03-07,2
-project-curation,2026-03-14,12
+project-curation,2026-03-14,13
+project-curation,2026-03-15,4
 projecteuler,2013-02-13,2
 projecteuler,2013-02-14,2
 projecteuler,2013-02-18,1
@@ -1566,6 +1579,8 @@ reflect,2026-02-19,1
 reflect,2026-02-26,1
 reflect,2026-03-05,1
 reflect,2026-03-12,1
+reflect,2026-03-19,1
+reflect,2026-03-25,1
 riemann-staircase,2021-12-28,2
 riemann-staircase,2023-01-25,1
 running-data,2015-10-25,1
@@ -1719,6 +1734,7 @@ tomwhite.github.com,2026-01-03,2
 tomwhite.github.com,2026-02-01,1
 tomwhite.github.com,2026-03-06,3
 tomwhite.github.com,2026-03-07,1
+tomwhite.github.com,2026-03-28,1
 topple,2023-12-28,3
 topple,2023-12-29,4
 topple,2024-01-01,1

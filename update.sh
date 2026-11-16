@@ -19,5 +19,9 @@ echo "Generating git status..."
 echo "Generating projects DB with git status..."
 ./post-process-db.py
 
+echo "Exporting public data to website..."
+./export-public.py
+
 echo "Done. Changed data files:"
 git status --short data
+git -C ../tomwhite.github.com status --short data

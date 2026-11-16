@@ -23,8 +23,9 @@ Python scripts declare their dependencies inline, so no venv is needed.
 ./update.sh
 ```
 
-This pulls the work repos, regenerates the commit counts and git status, and rebuilds
-`projects-db-final.csv`.
+This pulls the work repos, regenerates the commit counts and git status, rebuilds
+`projects-db-final.csv`, and exports the public data (published projects only, public columns only)
+to `../tomwhite.github.com/data/`. Review and commit the changes there to update the website.
 
 The individual steps, if you want to run one on its own:
 
@@ -32,7 +33,9 @@ The individual steps, if you want to run one on its own:
 ./git-commits-all.sh > data/git-commits.csv # git commit counts by project and date
 ./git-commits-work.sh > data/git-commits-work.csv # git commit counts for work projects (in repos/) by project and date
 ./git-status.sh > data/git-status.csv # whether project is in local git and github
-./post-process-db.py # add git status to projects DB -> data/projects-db-final.csv```
+./post-process-db.py # add git status to projects DB -> data/projects-db-final.csv
+./export-public.py # public data -> ../tomwhite.github.com/data/
+```
 
 ## More queries
 

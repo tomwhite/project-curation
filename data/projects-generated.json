@@ -1,5 +1,29 @@
 [
   {
+    "name": "paper-folding",
+    "description": "What shape is a piece of paper after being folded over and over?",
+    "homepage": "https://tom-e-white.com/paper-folding/",
+    "html_url": "https://github.com/tomwhite/paper-folding",
+    "topics": "maths,visualization",
+    "date": "2026-11-15"
+  },
+  {
+    "name": "tmz",
+    "description": "The Thue-Morse sequence and Z-order curves",
+    "homepage": "https://tom-e-white.com/tmz/",
+    "html_url": "https://github.com/tomwhite/tmz",
+    "topics": "visualization,maths",
+    "date": "2026-11-01"
+  },
+  {
+    "name": "daylight-block-clock",
+    "description": "A clock that shows the progression of time through the daylight hours - on a grid",
+    "homepage": "https://tom-e-white.com/daylight-block-clock/",
+    "html_url": "https://github.com/tomwhite/daylight-block-clock",
+    "topics": "visualization,maker",
+    "date": "2026-07-01"
+  },
+  {
     "name": "ql-metropolis-map",
     "description": "A map of the QL Metropolis game from 1985",
     "homepage": "https://tom-e-white.com/ql-metropolis-map/",
@@ -44,7 +68,7 @@
     "description": "Visualizations of bat activity over the year using an Arduino bat detector",
     "homepage": "https://observablehq.com/d/682fb4043d9dadb7",
     "html_url": "https://github.com/tomwhite/ardubat",
-    "topics": "maker,visualization",
+    "topics": "maker,nature,visualization",
     "date": "2025-07-20"
   },
   {
@@ -56,12 +80,28 @@
     "date": "2025-05-30"
   },
   {
+    "name": "knitting-squares",
+    "description": "A knitting pattern where adjacent squares don't share a background or foreground colour",
+    "homepage": "https://gist.github.com/tomwhite/8db2999b3281b54ced92773805aa70a1",
+    "html_url": "https://gist.github.com/tomwhite/8db2999b3281b54ced92773805aa70a1",
+    "topics": "family,maker,visualization",
+    "date": "2025-05-26"
+  },
+  {
     "name": "ge-2024",
     "description": "An animation that relives the night of the Labour landslide",
     "homepage": "https://tom-e-white.com/ge-2024/",
     "html_url": "https://github.com/tomwhite/ge-2024",
     "topics": "geo,visualization",
     "date": "2024-07-01"
+  },
+  {
+    "name": "mackerel",
+    "description": "Which station on the London Tube map doesn't share any letters with \"mackerel\"?",
+    "homepage": "https://gist.github.com/tomwhite/71a8a736d71b939d2eb46191109a76e8",
+    "html_url": "https://gist.github.com/tomwhite/71a8a736d71b939d2eb46191109a76e8",
+    "topics": "maths",
+    "date": "2023-12-30"
   },
   {
     "name": "8-bit-computer",
@@ -80,19 +120,19 @@
     "date": "2023-02-01"
   },
   {
-    "name": "zx81-not-only-30-programs",
-    "description": "Run the programs from \"Not Only 30 Programs for the Sinclair ZX81\" in your browser",
-    "homepage": "https://tomwhite.github.io/zx81-not-only-30-programs/web/index.html",
-    "html_url": "https://github.com/tomwhite/zx81-not-only-30-programs",
-    "topics": "games,retro-computing",
-    "date": "2023-01-01"
-  },
-  {
     "name": "reflect",
     "description": "An optical puzzle",
     "homepage": "https://tom-e-white.com/reflect/",
     "html_url": "https://github.com/tomwhite/reflect",
     "topics": "games",
+    "date": "2023-01-01"
+  },
+  {
+    "name": "zx81-not-only-30-programs",
+    "description": "Run the programs from \"Not Only 30 Programs for the Sinclair ZX81\" in your browser",
+    "homepage": "https://tomwhite.github.io/zx81-not-only-30-programs/web/index.html",
+    "html_url": "https://github.com/tomwhite/zx81-not-only-30-programs",
+    "topics": "games,retro-computing",
     "date": "2023-01-01"
   },
   {
@@ -128,6 +168,14 @@
     "date": "2021-12-01"
   },
   {
+    "name": "op-art",
+    "description": "Animated array operations",
+    "homepage": "https://tom-e-white.com/op-art/",
+    "html_url": "https://github.com/tomwhite/op-art",
+    "topics": "arrays,visualization",
+    "date": "2021-04-22"
+  },
+  {
     "name": "periodic-table",
     "description": "The Periodic Table, Animated",
     "homepage": "https://observablehq.com/@tomwhite/the-periodic-table-animated",
@@ -148,7 +196,7 @@
     "description": "An Arduino recreation of Shannon's Bird Cage",
     "homepage": "https://github.com/tomwhite/birdcage",
     "html_url": "https://github.com/tomwhite/birdcage",
-    "topics": "games,maker",
+    "topics": "games,gardner,maker",
     "date": "2021-01-01"
   },
   {
@@ -156,7 +204,7 @@
     "description": "My programs to draw the Mandelbrot Set from 1989 using GFA Basic on the Atari ST.",
     "homepage": "https://github.com/tomwhite/mandelbrot-1989",
     "html_url": "https://github.com/tomwhite/mandelbrot-1989",
-    "topics": "retro-computing,visualization",
+    "topics": "gardner,retro-computing,visualization",
     "date": "2020-12-01"
   },
   {
@@ -166,6 +214,14 @@
     "html_url": "https://github.com/tomwhite/datavision-code",
     "topics": "visualization",
     "date": "2020-01-01"
+  },
+  {
+    "name": "chinesechequers",
+    "description": "Play Chinese Chequers against the computer",
+    "homepage": "https://tom-e-white.com/chinesechequers/",
+    "html_url": "https://github.com/tomwhite/chinesechequers",
+    "topics": "games",
+    "date": "2019-01-04"
   },
   {
     "name": "mappix",
@@ -180,7 +236,7 @@
     "description": "Animating Euler's equation",
     "homepage": "https://tomwhite.github.io/most-beautiful-formula/",
     "html_url": "https://github.com/tomwhite/most-beautiful-formula",
-    "topics": "visualization",
+    "topics": "gardner,visualization",
     "date": "2018-06-01"
   },
   {
@@ -212,7 +268,7 @@
     "description": "An Arduino recreation of Shannon's Mind Reading Machine",
     "homepage": "https://github.com/tomwhite/outguessing",
     "html_url": "https://github.com/tomwhite/outguessing",
-    "topics": "games,maker",
+    "topics": "games,maker,retro-computing",
     "date": "2016-01-01"
   },
   {
@@ -220,7 +276,7 @@
     "description": "Inspired by Scott Kim's \"Inversions\" I made two designs for my daughters.",
     "homepage": "https://github.com/tomwhite/inversions",
     "html_url": "https://github.com/tomwhite/inversions",
-    "topics": "visualization",
+    "topics": "family,gardner,visualization",
     "date": "2015-12-01"
   },
   {
@@ -228,7 +284,7 @@
     "description": "The sum of the first n cubes equals the square of the sum of the first n numbers.",
     "homepage": "http://tomwhite.github.io/cubesum",
     "html_url": "https://github.com/tomwhite/cubesum",
-    "topics": "visualization",
+    "topics": "gardner,visualization",
     "date": "2015-10-01"
   },
   {
@@ -316,7 +372,7 @@
     "description": "Visualizing L-Systems",
     "homepage": "http://tomwhite.github.io/l-systems/",
     "html_url": "https://github.com/tomwhite/l-systems",
-    "topics": "visualization",
+    "topics": "gardner,visualization",
     "date": "2010-11-01"
   },
   {
@@ -340,7 +396,7 @@
     "description": "A program to generate Piet Hein's superellipses.",
     "homepage": "https://observablehq.com/@tomwhite/superellipse-generator",
     "html_url": "https://github.com/tomwhite/superellipse",
-    "topics": "visualization",
+    "topics": "gardner,visualization",
     "date": "2002-03-01"
   },
   {
@@ -372,7 +428,7 @@
     "description": "A Java API for experimenting with tilings and patterns.",
     "homepage": "http://tomwhite.github.io/alhambra/",
     "html_url": "https://github.com/tomwhite/alhambra",
-    "topics": "visualization",
+    "topics": "gardner,visualization",
     "date": "1998-08-01"
   },
   {

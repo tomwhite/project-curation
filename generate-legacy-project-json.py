@@ -1,3 +1,8 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.10"
+# dependencies = ["pandas"]
+# ///
 # Compare with projects.json from tomwhite.github.com
 # The plan is to retire projects.json and replace with projects-db.csv
 import json

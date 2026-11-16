@@ -25,7 +25,6 @@ binarypi,Y,N,Calculating the nth binary digit of pi,,https://github.com/tomwhite
 birdcage,Y,Y,An Arduino recreation of Shannon's Bird Cage,https://github.com/tomwhite/birdcage,https://github.com/tomwhite/birdcage,,"games,gardner,maker",2021-01-01,,,"Gardner, Martin, (1961), More Mathematical Puzzles and Diversions, Penguin Books"
 birthday-roots,Y,N,Which year do you need to be born in so that you have a birthday year which is a power of your age?,,https://github.com/tomwhite/birthday-roots,,maths,,,,
 blockclock,Y,Y,A real digital clock,http://tomwhite.github.io/blockclock/,https://github.com/tomwhite/blockclock,,visualization,2002-01-01,,,
-blockclock-matrix,Y,N,Blockclock as an LED matrix,,,,"visualization,maker",,https://share.evernote.com/note/7105a9dc-459b-4420-fe78-a884cc314071,,
 blockclock-sweep,Y,N,Blockclock as a laser pointer,,,,"visualization,maker",,https://share.evernote.com/note/9144742f-766a-4f0f-8006-00c8be116dbc,,
 bolus-calc,Y,N,Experiments in calculating insulin bolus amounts for T1D,,,,t1d,,,,
 carbon-footprint,Y,N,Calculating our household carbon footprint in 2017,,,,"green,home",,https://share.evernote.com/note/c9329f1b-9d84-4b60-81cc-f3827703a1e6,,
@@ -49,6 +48,7 @@ datashader-leaflet,Y,N,Using Leaflet to view Datashader visualizations,,,,visual
 datavision,Y,Y,A weekly data visualization in 2020,http://tom-e-white.com/datavision/,https://github.com/tomwhite/datavision-code,,visualization,2020-01-01,,,
 datavision-code,Y,N,Code for Datavision 2020,https://tom-e-white.com/datavision/,https://github.com/tomwhite/datavision-code,,visualization,,,,
 david,Y,Y,From what position will a statue such as this appear of maximum size?,https://observablehq.com/@tomwhite/david,https://github.com/tomwhite/david,,visualization,2023-02-01,,,"""The Penguin Dictionary of Curious and Interesting Geometry"" by David Wells (p3)"
+daylight-block-clock,Y,Y,A clock that shows the progression of time through the daylight hours - on a grid,https://tom-e-white.com/daylight-block-clock/,https://github.com/tomwhite/daylight-block-clock,,"visualization,maker",2026-07-01,https://share.evernote.com/note/7105a9dc-459b-4420-fe78-a884cc314071,,
 dboard,Y,N,A dashboard for Type 1 Diabetes.,,https://github.com/tomwhite/dboard,,"t1d,visualization",,https://share.evernote.com/note/aec18458-d913-4d2a-9001-925fb3a4a2c7,,
 dboard-js,Y,N,Javascript version of dboard,,,,"t1d,visualization",,https://share.evernote.com/note/3810ac8b-5b14-45de-8720-215ff0ebce51,,
 diabetes-site-rotation,Y,N,Diagram for injection sites,,,,t1d,,,,
@@ -121,10 +121,10 @@ op-art-dask,Y,N,Animated array operations for Dask,,,,"arrays,visualization",,,o
 outguessing,Y,Y,An Arduino recreation of Shannon's Mind Reading Machine,https://github.com/tomwhite/outguessing,https://github.com/tomwhite/outguessing,,"games,maker,retro-computing",2016-01-01,https://share.evernote.com/note/55ebee34-d394-418a-85c0-01b81ebd16f3,,
 outguessing-java,Y,N,A Java version of Shannon's Mind Reading Machine,,,,"games,retro-computing",,,outguessing,
 pangrams,Y,Y,Code to search for (Lee Sallows) pangrams for my family,https://github.com/tomwhite/pangrams,https://github.com/tomwhite/pangrams,,"family,maths",2016-11-27,https://share.evernote.com/note/54a83291-2d20-4b38-be36-ea0d65e294e5,,"A. K. Dewdney, 'The Armchair Universe'"
-paper-folding,Y,N,Visualizations of paper folding,,,,visualization,,https://share.evernote.com/note/31db5818-6423-4d90-8fe8-14ac91eab445,,
+paper-folding,Y,Y,What shape is a piece of paper after being folded over and over?,https://tom-e-white.com/paper-folding/,https://github.com/tomwhite/paper-folding,,"maths,visualization",2026-11-15,https://share.evernote.com/note/31db5818-6423-4d90-8fe8-14ac91eab445,,
 percy-davies,Y,N,Statistical analysis of donations to the Percy Davies Trust,,,,local-community,,,,
 periodic-table,Y,Y,"The Periodic Table, Animated",https://observablehq.com/@tomwhite/the-periodic-table-animated,https://github.com/tomwhite/periodic-table,,visualization,2021-03-01,,,
-plastic-numbers,Y,N,Visualization of 3D Padovan Sequences,,,,"maths,visualization",,https://share.evernote.com/note/4d82ff6c-ef3c-4e6a-9498-b48affcd073a,,"Ian Stewart, Math Hysteria"
+plastic-numbers,Y,N,Visualising the Padovan sequence in 3D,,,,"maths,visualization",2026-11-16,https://share.evernote.com/note/4d82ff6c-ef3c-4e6a-9498-b48affcd073a,,"Ian Stewart, Math Hysteria"
 polarize,Y,Y,A light puzzle,https://tom-e-white.com/polarize/,https://github.com/tomwhite/polarize,,games,2026-01-01,https://share.evernote.com/note/f4f0c48a-1535-5ade-3c38-677efa83d0f6,,
 pong,Y,Y,"An Arduino port of pypaddle, which is ""a paddle ball bouncing game very similar to Pong""",https://github.com/tomwhite/pong,https://github.com/tomwhite/pong,,"games,maker,retro-computing",2023-01-01,,,
 predict_pv_yield_nwp,N,N,Build a baseline model for predicting PV yield using NWP (numerical weather predictions),,https://github.com/openclimatefix/predict_pv_yield_nwp,,,,https://share.evernote.com/note/a4894487-bb89-41a5-b557-bc9d0c2328a7,,
@@ -171,6 +171,7 @@ tomwhite.github.com,Y,N,My website (tom-e-white.com),https://tom-e-white.com/,ht
 topple,Y,N,Unsuccessful experiment to create a balancing game using blocks (based on Nature's blox),,,,games,,https://share.evernote.com/note/6360a89b-73bc-fef6-b969-8eb966ff21eb,,
 tournesol,Y,N,Phyllotaxis in Java,,https://github.com/tomwhite/tournesol,,"visualization,maths,nature",,,,
 tournesol-js,Y,N,Phyllotaxis in JavaScript,,,,"visualization,maths,nature",,,,
+tmz,Y,Y,The Thue-Morse sequence and Z-order curves,https://tom-e-white.com/tmz/,https://github.com/tomwhite/tmz,,"visualization,maths",2026-11-01,,,
 tree-preservation-orders,Y,N,Unfinished code to analyse Welsh tree preservation orders dataset,,,,local-community,,,,
 vegbox,Y,N,Scrape Riverford website to find what's in this week's vegbox,,,,home,,,,
 vstack-and-rechunk,Y,N,Experiments to fix https://github.com/dask/dask/issues/5105,,,,arrays,,,,

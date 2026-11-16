@@ -19,8 +19,5 @@ echo "Generating git status..."
 echo "Generating projects DB with git status..."
 ./post-process-db.py
 
-echo "Generating legacy projects.json..."
-./generate-legacy-project-json.py
-
 echo "Done. Changed data files:"
 git status --short data

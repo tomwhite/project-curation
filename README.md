@@ -24,11 +24,7 @@ Python scripts declare their dependencies inline, so no venv is needed.
 ```
 
 This pulls the work repos, regenerates the commit counts and git status, and rebuilds
-`projects-db-final.csv` and `projects-generated.json`. To compare the legacy projects.json:
-
-```shell
-diff data/projects-generated.json ../tomwhite.github.com/projects/projects.json
-```
+`projects-db-final.csv`.
 
 The individual steps, if you want to run one on its own:
 
@@ -36,9 +32,7 @@ The individual steps, if you want to run one on its own:
 ./git-commits-all.sh > data/git-commits.csv # git commit counts by project and date
 ./git-commits-work.sh > data/git-commits-work.csv # git commit counts for work projects (in repos/) by project and date
 ./git-status.sh > data/git-status.csv # whether project is in local git and github
-./post-process-db.py # add git status to projects DB -> data/projects-db-final.csv
-./generate-legacy-project-json.py # -> data/projects-generated.json
-```
+./post-process-db.py # add git status to projects DB -> data/projects-db-final.csv```
 
 ## More queries
 

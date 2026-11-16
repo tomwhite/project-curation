@@ -139,8 +139,7 @@ pangrams,Y,Y
 paper-folding,Y,Y
 percy-davies,N,N
 periodic-table,Y,Y
-plastic-numbers,Y,N
-plastic-numbers-js,Y,N
+plastic-numbers,Y,Y
 polarize,Y,Y
 pong,Y,Y
 predict_pv_yield_nwp,Y,Y

@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 echo "Updating work repos..."
-for repo in bio2zarr cubed sgkit vcsstore vcztools; do
+for repo in bio2zarr cubed sgkit vczstore vcztools; do
   (cd "repos/$repo" && git pull -q origin main)
 done
 

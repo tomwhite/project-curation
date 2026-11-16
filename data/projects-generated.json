@@ -1,5 +1,13 @@
 [
   {
+    "name": "plastic-numbers",
+    "description": "Visualising the Padovan sequence in 3D",
+    "homepage": "https://tom-e-white.com/plastic-numbers/",
+    "html_url": "https://github.com/tomwhite/plastic-numbers",
+    "topics": "maths,visualization",
+    "date": "2026-11-16"
+  },
+  {
     "name": "paper-folding",
     "description": "What shape is a piece of paper after being folded over and over?",
     "homepage": "https://tom-e-white.com/paper-folding/",
@@ -120,19 +128,19 @@
     "date": "2023-02-01"
   },
   {
-    "name": "reflect",
-    "description": "An optical puzzle",
-    "homepage": "https://tom-e-white.com/reflect/",
-    "html_url": "https://github.com/tomwhite/reflect",
-    "topics": "games",
-    "date": "2023-01-01"
-  },
-  {
     "name": "zx81-not-only-30-programs",
     "description": "Run the programs from \"Not Only 30 Programs for the Sinclair ZX81\" in your browser",
     "homepage": "https://tomwhite.github.io/zx81-not-only-30-programs/web/index.html",
     "html_url": "https://github.com/tomwhite/zx81-not-only-30-programs",
     "topics": "games,retro-computing",
+    "date": "2023-01-01"
+  },
+  {
+    "name": "reflect",
+    "description": "An optical puzzle",
+    "homepage": "https://tom-e-white.com/reflect/",
+    "html_url": "https://github.com/tomwhite/reflect",
+    "topics": "games",
     "date": "2023-01-01"
   },
   {
@@ -344,19 +352,19 @@
     "date": "2012-12-31"
   },
   {
-    "name": "apportionment",
-    "description": "Calculating apportionments for the House of Representatives using the Huntington-Hill method.",
-    "homepage": "https://tom-e-white.com/2012/12/apportionment.html",
-    "html_url": "https://github.com/tomwhite/apportionment",
-    "topics": "maths",
-    "date": "2012-07-01"
-  },
-  {
     "name": "d3troit",
     "description": "A d3 visualization of the changing populations of the largest cities in the US",
     "homepage": "http://tomwhite.github.io/d3troit/index.html",
     "html_url": "https://github.com/tomwhite/d3troit",
     "topics": "visualization",
+    "date": "2012-07-01"
+  },
+  {
+    "name": "apportionment",
+    "description": "Calculating apportionments for the House of Representatives using the Huntington-Hill method.",
+    "homepage": "https://tom-e-white.com/2012/12/apportionment.html",
+    "html_url": "https://github.com/tomwhite/apportionment",
+    "topics": "maths",
     "date": "2012-07-01"
   },
   {

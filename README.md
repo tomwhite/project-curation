@@ -45,5 +45,4 @@ The individual steps, if you want to run one on its own:
 ```shell
 ./github-not-forked.sh # on github but not forked
 ./git-dirty.sh  # dirty git status
-./projects-by-commit-weeks.py # projects sorted by number of weeks with commits
 ```

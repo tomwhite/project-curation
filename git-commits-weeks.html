@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Active Weeks by Project – Bar Chart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <script type="module">
+      import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+      import { csv } from "https://cdn.jsdelivr.net/npm/d3-fetch@3/+esm";
+      import { autoType } from "https://cdn.jsdelivr.net/npm/d3-dsv@3/+esm";
+      import { rollup } from "https://cdn.jsdelivr.net/npm/d3-array@3/+esm";
+      import { utcWeek } from "https://cdn.jsdelivr.net/npm/d3-time@3/+esm";
+
+      Promise.all([
+        csv("data/git-commits.csv", autoType),
+        csv("data/projects-db.csv"),
+      ]).then(function([commitData, projectData]) {
+        // Build a map of project name -> published status
+        const publishedMap = Object.fromEntries(projectData.map(d => [d.name, d.published]));
+
+        // Count distinct weeks with at least one commit per project (all projects)
+        const weeks = rollup(
+          commitData,
+          v => new Set(v.map(d => +utcWeek.floor(d.date))).size,
+          d => d.project
+        );
+
+        const allData = Array.from(weeks, ([project, active_weeks]) => ({
+          project,
+          active_weeks,
+          published: publishedMap[project] ?? "N",
+        })).sort((a, b) => b.active_weeks - a.active_weeks);
+
+        let activeFilter = "Y";
+
+        const buttons = document.querySelectorAll("#filter-buttons button");
+        buttons.forEach(btn => {
+          btn.addEventListener("click", function() {
+            activeFilter = this.dataset.value;
+            buttons.forEach(b => {
+              b.classList.toggle("btn-primary", b === this);
+              b.classList.toggle("btn-outline-primary", b !== this);
+            });
+            render();
+          });
+        });
+
+        function render() {
+          const filtered = activeFilter === "all"
+            ? allData
+            : allData.filter(d => d.published === activeFilter);
+
+          const chart = Plot.plot({
+            marks: [
+              Plot.barX(filtered, {
+                x: "active_weeks",
+                y: "project",
+                fill: "steelblue",
+                tip: true,
+                title: d => `${d.project}\n${d.active_weeks} weeks with commits`,
+              }),
+              Plot.ruleX([0]),
+              Plot.axisX({ anchor: "top" }),
+              Plot.axisX({ anchor: "bottom" }),
+            ],
+            x: { label: "Weeks with commits" },
+            y: { domain: filtered.map(d => d.project), label: null },
+            marginLeft: 150,
+            width: 900,
+            height: filtered.length * 20 + 60,
+          });
+
+          const container = document.getElementById("chart");
+          container.innerHTML = "";
+          container.appendChild(chart);
+        }
+
+        render();
+      });
+    </script>
+  </head>
+  <body class="container mt-4">
+    <h1>Active Weeks by Project</h1>
+    <p>Number of weeks with at least one commit per project, sorted by count.</p>
+    <div id="filter-buttons" class="btn-group mb-3">
+      <button class="btn btn-outline-primary" data-value="all">All</button>
+      <button class="btn btn-primary" data-value="Y">Published</button>
+      <button class="btn btn-outline-primary" data-value="N">Not published</button>
+    </div>
+    <div id="chart"></div>
+  </body>
+</html>

@@ -48,7 +48,7 @@ datashader-leaflet,Y,N,Using Leaflet to view Datashader visualizations,,,,visual
 datavision,Y,Y,A weekly data visualization in 2020,http://tom-e-white.com/datavision/,https://github.com/tomwhite/datavision-code,,visualization,2020-01-01,,,,Y,Y
 datavision-code,Y,N,Code for Datavision 2020,https://tom-e-white.com/datavision/,https://github.com/tomwhite/datavision-code,,visualization,,,,,Y,Y
 david,Y,Y,From what position will a statue such as this appear of maximum size?,https://observablehq.com/@tomwhite/david,https://github.com/tomwhite/david,,visualization,2023-02-01,,,"""The Penguin Dictionary of Curious and Interesting Geometry"" by David Wells (p3)",Y,Y
-daylight-block-clock,Y,Y,A clock that shows the progression of time through the daylight hours - on a grid,https://tom-e-white.com/daylight-block-clock/,https://github.com/tomwhite/daylight-block-clock,,"visualization,maker",2026-07-01,https://share.evernote.com/note/7105a9dc-459b-4420-fe78-a884cc314071,,,,
+daylight-block-clock,Y,Y,A clock that shows the progression of time through the daylight hours - on a grid,https://tom-e-white.com/daylight-block-clock/,https://github.com/tomwhite/daylight-block-clock,,"visualization,maker",2026-07-01,https://share.evernote.com/note/7105a9dc-459b-4420-fe78-a884cc314071,,,Y,Y
 dboard,Y,N,A dashboard for Type 1 Diabetes.,,https://github.com/tomwhite/dboard,,"t1d,visualization",,https://share.evernote.com/note/aec18458-d913-4d2a-9001-925fb3a4a2c7,,,Y,Y
 dboard-js,Y,N,Javascript version of dboard,,,,"t1d,visualization",,https://share.evernote.com/note/3810ac8b-5b14-45de-8720-215ff0ebce51,,,Y,N
 diabetes-site-rotation,Y,N,Diagram for injection sites,,,,t1d,,,,,Y,N
@@ -121,7 +121,7 @@ op-art-dask,Y,N,Animated array operations for Dask,,,,"arrays,visualization",,,o
 outguessing,Y,Y,An Arduino recreation of Shannon's Mind Reading Machine,https://github.com/tomwhite/outguessing,https://github.com/tomwhite/outguessing,,"games,maker,retro-computing",2016-01-01,https://share.evernote.com/note/55ebee34-d394-418a-85c0-01b81ebd16f3,,,Y,Y
 outguessing-java,Y,N,A Java version of Shannon's Mind Reading Machine,,,,"games,retro-computing",,,outguessing,,Y,N
 pangrams,Y,Y,Code to search for (Lee Sallows) pangrams for my family,https://github.com/tomwhite/pangrams,https://github.com/tomwhite/pangrams,,"family,maths",2016-11-27,https://share.evernote.com/note/54a83291-2d20-4b38-be36-ea0d65e294e5,,"A. K. Dewdney, 'The Armchair Universe'",Y,Y
-paper-folding,Y,Y,What shape is a piece of paper after being folded over and over?,https://tom-e-white.com/paper-folding/,https://github.com/tomwhite/paper-folding,,"maths,visualization",2026-11-15,https://share.evernote.com/note/31db5818-6423-4d90-8fe8-14ac91eab445,,,Y,N
+paper-folding,Y,Y,What shape is a piece of paper after being folded over and over?,https://tom-e-white.com/paper-folding/,https://github.com/tomwhite/paper-folding,,"maths,visualization",2026-11-15,https://share.evernote.com/note/31db5818-6423-4d90-8fe8-14ac91eab445,,,Y,Y
 percy-davies,Y,N,Statistical analysis of donations to the Percy Davies Trust,,,,local-community,,,,,N,N
 periodic-table,Y,Y,"The Periodic Table, Animated",https://observablehq.com/@tomwhite/the-periodic-table-animated,https://github.com/tomwhite/periodic-table,,visualization,2021-03-01,,,,Y,Y
 plastic-numbers,Y,N,Visualising the Padovan sequence in 3D,,,,"maths,visualization",2026-11-16,https://share.evernote.com/note/4d82ff6c-ef3c-4e6a-9498-b48affcd073a,,"Ian Stewart, Math Hysteria",Y,N

@@ -27,7 +27,6 @@ birdcage,Y,Y
 birthday-roots,Y,Y
 blessed-browser,Y,N
 blockclock,Y,Y
-blockclock-matrix,Y,N
 blockclock-sweep,N,N
 bolus-calc,Y,N
 carbon-footprint,N,N
@@ -51,6 +50,7 @@ datashader-leaflet,Y,N
 datavision,Y,Y
 datavision-code,Y,Y
 david,Y,Y
+daylight-block-clock,Y,Y
 dboard,Y,Y
 dboard-js,Y,N
 diabetes-site-rotation,Y,N
@@ -61,6 +61,7 @@ earth-moon-game,Y,Y
 edge-detection,Y,N
 egg-construction,Y,Y
 egg-fitting,Y,N
+emfcamp-2026,N,N
 enigma,Y,N
 facebender,Y,Y
 false-summits,Y,Y
@@ -108,6 +109,7 @@ leveltheplayingfieldchs,Y,N
 libre-nightscout-uploader,Y,Y
 lidar-house,N,N
 llangattock-place-plan,Y,Y
+lle,Y,N
 lollipop,N,N
 longdiary,N,N
 longview,Y,Y
@@ -123,6 +125,7 @@ most-beautiful-formula,Y,Y
 nd3,Y,N
 novice,Y,Y
 ns-api-uploader,Y,Y
+obsidian-import-from-evernote,N,N
 ocf-experiments,N,N
 old-projects,Y,N
 onair,Y,N
@@ -133,10 +136,11 @@ oqtadrive-release,N,N
 outguessing,Y,Y
 outguessing-java,Y,N
 pangrams,Y,Y
-paper-folding,Y,N
+paper-folding,Y,Y
 percy-davies,N,N
 periodic-table,Y,Y
 plastic-numbers,Y,N
+plastic-numbers-js,Y,N
 polarize,Y,Y
 pong,Y,Y
 predict_pv_yield_nwp,Y,Y
@@ -153,6 +157,7 @@ ql-cavern-map,Y,Y
 ql-metropolis-map,Y,Y
 qltools,Y,Y
 qs,Y,N
+quartegg,N,N
 qxltools,Y,Y
 read_thermal.py,Y,Y
 rechunker-algorithm,Y,N
@@ -196,6 +201,7 @@ vstack-and-rechunk,Y,N
 wattson-emulator,Y,N
 webcam,Y,N
 whats-for-dinner,N,N
+windy,Y,N
 wordcloud,N,N
 workhouse,N,N
 zx81,N,N

@@ -22,6 +22,7 @@ conda activate metaproject
 ```
 
 * Update the commits csv (see `git-commits-all.sh` command below)
+* Update the git status csv (see `git-status.sh` command below)
 * Update projects DB with git status:
 
 ```shell
@@ -48,7 +49,6 @@ cd ..
 
 ```shell
 ./git-commits-work.sh > data/git-commits-work.csv # git commit counts for work projects by project and date
-sed -i '' 's/hadoop-pre-HADOOP-4687/hadoop/' data/git-commits-work.csv
 ```
 
 

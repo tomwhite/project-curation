@@ -82,9 +82,14 @@
 
             const embed = card.appendChild(document.createElement("div"));
             embed.className = "embed-responsive embed-responsive-1by1";
-            const imgLink = embed.appendChild(document.createElement("a"));
-            imgLink.href = d.homepage;
-            const img = imgLink.appendChild(document.createElement("img"));
+            // Wrap in a link only if there is somewhere to link to
+            const linkOrSelf = (parent, href) => {
+                if (!href) return parent;
+                const a = parent.appendChild(document.createElement("a"));
+                a.href = href;
+                return a;
+            };
+            const img = linkOrSelf(embed, d.homepage).appendChild(document.createElement("img"));
             img.className = "card-img-top embed-responsive-item";
             img.src = logo_url;
             img.alt = d.name + " logo";
@@ -92,22 +97,24 @@
 
             const body = card.appendChild(document.createElement("div"));
             body.className = "card-body";
-            const titleLink = body.appendChild(document.createElement("a"));
-            titleLink.href = d.homepage;
-            const h5 = titleLink.appendChild(document.createElement("h5"));
+            const h5 = linkOrSelf(body, d.homepage).appendChild(document.createElement("h5"));
             h5.className = "card-title";
             h5.textContent = d.name;
             const desc = body.appendChild(document.createElement("p"));
             desc.className = "card-text";
             desc.textContent = d.description;
-            const moreLink = body.appendChild(document.createElement("a"));
-            moreLink.href = d.homepage;
-            moreLink.className = "card-link";
-            moreLink.textContent = "More...";
-            const codeLink = body.appendChild(document.createElement("a"));
-            codeLink.href = d.html_url;
-            codeLink.className = "card-link";
-            codeLink.textContent = "Code";
+            if (d.homepage) {
+                const moreLink = body.appendChild(document.createElement("a"));
+                moreLink.href = d.homepage;
+                moreLink.className = "card-link";
+                moreLink.textContent = "More...";
+            }
+            if (d.html_url) {
+                const codeLink = body.appendChild(document.createElement("a"));
+                codeLink.href = d.html_url;
+                codeLink.className = "card-link";
+                codeLink.textContent = "Code";
+            }
 
             document.getElementById("project").appendChild(row);
         }).catch(error => console.error("Error loading CSV:", error));
